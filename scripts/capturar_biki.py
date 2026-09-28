@@ -32,6 +32,7 @@ BASE_URL = (
 CSV_PATH = os.environ.get("CSV_PATH") or "data/historico.csv"
 ARCHIVO_DIR = os.path.join(os.path.dirname(CSV_PATH) or ".", "archivo")
 COLUMNAS = ["station_id", "nombre", "mecanicas", "electricas", "timestamp"]
+ESTACIONES_OMITIR = {"104"}
 
 
 def get_gbfs(feed, intentos=3):
@@ -93,13 +94,15 @@ def main():
     tipos = get_gbfs("vehicle_types")["data"]["vehicle_types"]
     status = get_gbfs("station_status")["data"]["stations"]
 
-    nombres = {str(s["station_id"]): s.get("name", "") for s in info}
+    nombres = {str(s["station_id"]): s.get("name", "") for s in info if str(s["station_id"]) not in ESTACIONES_OMITIR}
     propulsion = {t["vehicle_type_id"]: t.get("propulsion_type", "") for t in tipos}
     ahora = datetime.now(ZoneInfo("Europe/Madrid")).strftime("%Y-%m-%d %H:%M:%S")
 
     filas = []
     for s in status:
         sid = str(s["station_id"])
+        if sid in ESTACIONES_OMITIR:
+            continue
         mec = ele = 0
         disponibles = s.get("vehicle_types_available")
         if disponibles:
