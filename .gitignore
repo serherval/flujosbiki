@@ -1,0 +1,8 @@
+
+# Backups y archivos temporales locales
+data/*_backup_*.csv
+data/historico_SEGURIDAD_*.csv
+scripts/*_backup_*.py
+scripts/*_backup_*.sh
+scripts/__pycache__/
+scripts/convertir_historico_capacidad.py
