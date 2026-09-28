@@ -19,6 +19,23 @@ ARCHIVO_DIR = os.path.join(os.path.dirname(CSV_PATH) or ".", "archivo")
 
 INTERVALO = 30
 
+# Estaciones dinámicas: se regeneran desde GBFS (station_information)
+DATA_DIR = os.path.dirname(CSV_PATH) or "."
+ESTACIONES_PATH = (
+    os.environ.get("ESTACIONES_PATH")
+    or os.path.join(DATA_DIR, "estaciones.csv")
+)
+CAPACIDAD_HIST_PATH = os.path.join(DATA_DIR, "capacidad_historico.csv")
+REFRESCO_ESTACIONES = 3600  # segundos entre refrescos
+COLUMNAS_ESTACIONES = [
+    "station_id",
+    "nombre",
+    "lat",
+    "lon",
+    "capacidad",
+    "barrio",
+]
+
 COLUMNAS = [
     "station_id",
     "nombre",
@@ -378,6 +395,182 @@ def guardar_snapshot(filas):
         writer.writerows(filas)
 
 
+def _orden_id(sid):
+    return (0, int(sid)) if str(sid).isdigit() else (1, str(sid))
+
+
+def leer_estaciones_csv():
+    if not os.path.exists(ESTACIONES_PATH):
+        return {}
+
+    try:
+        with open(
+            ESTACIONES_PATH,
+            encoding="utf-8",
+            newline="",
+        ) as f:
+            return {
+                str(r["station_id"]): r
+                for r in csv.DictReader(f)
+            }
+
+    except Exception as e:
+        print(
+            f"AVISO: no se pudo leer {ESTACIONES_PATH}: {e}",
+            flush=True,
+        )
+        return {}
+
+
+def ultima_capacidad_historica():
+    ultimas = {}
+
+    if not os.path.exists(CAPACIDAD_HIST_PATH):
+        return ultimas
+
+    try:
+        with open(
+            CAPACIDAD_HIST_PATH,
+            encoding="utf-8",
+            newline="",
+        ) as f:
+            for r in csv.DictReader(f):
+                ultimas[str(r["station_id"])] = r["capacidad"]
+
+    except Exception as e:
+        print(
+            f"AVISO: no se pudo leer {CAPACIDAD_HIST_PATH}: {e}",
+            flush=True,
+        )
+
+    return ultimas
+
+
+def refrescar_estaciones(nombres):
+    """
+    Regenera estaciones.csv desde GBFS (station_information):
+    nombre, lat, lon y capacidad siempre del feed. 'barrio' no existe
+    en GBFS, así que se conserva del CSV anterior. Las estaciones que
+    desaparecen del feed se mantienen (no se pierde el histórico).
+    Registra en capacidad_historico.csv cada cambio de capacidad.
+    """
+    info = get_gbfs("station_information")["data"]["stations"]
+
+    if not info:
+        raise RuntimeError(
+            "station_information no devolvió estaciones."
+        )
+
+    previas = leer_estaciones_csv()
+    ultimas = ultima_capacidad_historica()
+
+    ahora = datetime.now(
+        ZoneInfo("Europe/Madrid")
+    ).strftime("%Y-%m-%d %H:%M:%S")
+
+    resultado = dict(previas)
+    cambios = []
+
+    for s in info:
+
+        sid = str(s["station_id"])
+        prev = previas.get(sid, {})
+
+        cap = s.get("capacity")
+
+        if cap is None:
+            capacidad = prev.get("capacidad", "")
+        else:
+            capacidad = str(int(cap))
+
+        nombre = s.get("name") or prev.get("nombre") or sid
+
+        resultado[sid] = {
+            "station_id": sid,
+            "nombre": nombre,
+            "lat": s.get("lat", prev.get("lat", "")),
+            "lon": s.get("lon", prev.get("lon", "")),
+            "capacidad": capacidad,
+            "barrio": prev.get("barrio", ""),
+        }
+
+        nombres[sid] = nombre
+
+        if previas and sid not in previas:
+            print(
+                f"NUEVA ESTACIÓN {sid} {nombre} "
+                f"(capacidad {capacidad}): falta el barrio.",
+                flush=True,
+            )
+
+        if capacidad != "" and ultimas.get(sid) != capacidad:
+            cambios.append([sid, capacidad, ahora])
+
+            if sid in ultimas:
+                print(
+                    f"CAPACIDAD {sid} {nombre}: "
+                    f"{ultimas[sid]} -> {capacidad}",
+                    flush=True,
+                )
+
+    os.makedirs(DATA_DIR, exist_ok=True)
+
+    tmp = ESTACIONES_PATH + ".tmp"
+
+    with open(
+        tmp,
+        "w",
+        encoding="utf-8",
+        newline="",
+    ) as f:
+
+        writer = csv.writer(
+            f,
+            quoting=csv.QUOTE_ALL,
+            lineterminator="\n",
+        )
+
+        writer.writerow(COLUMNAS_ESTACIONES)
+
+        for sid in sorted(resultado, key=_orden_id):
+            r = resultado[sid]
+            writer.writerow(
+                [r.get(c, "") for c in COLUMNAS_ESTACIONES]
+            )
+
+    os.replace(tmp, ESTACIONES_PATH)
+
+    if cambios:
+
+        nuevo = (
+            not os.path.exists(CAPACIDAD_HIST_PATH)
+            or os.path.getsize(CAPACIDAD_HIST_PATH) == 0
+        )
+
+        with open(
+            CAPACIDAD_HIST_PATH,
+            "a",
+            encoding="utf-8",
+            newline="",
+        ) as f:
+
+            writer = csv.writer(f, lineterminator="\n")
+
+            if nuevo:
+                writer.writerow(
+                    ["station_id", "capacidad", "timestamp"]
+                )
+
+            writer.writerows(cambios)
+
+    print(
+        f"Estaciones actualizadas desde GBFS: "
+        f"{len(resultado)} en {ESTACIONES_PATH} "
+        f"({len(cambios)} cambios de capacidad).",
+        flush=True,
+    )
+
+
 def main():
 
     print(
@@ -397,6 +590,12 @@ def main():
 
     print(
         f"CSV: {CSV_PATH}",
+        flush=True,
+    )
+
+    print(
+        f"Estaciones: {ESTACIONES_PATH} "
+        f"(refresco cada {REFRESCO_ESTACIONES}s)",
         flush=True,
     )
 
@@ -429,11 +628,27 @@ def main():
 
     estado_anterior = leer_ultimo_estado()
 
+    ultimo_refresco = 0
+
     while True:
 
         inicio = time.time()
 
         try:
+
+            if time.time() - ultimo_refresco >= REFRESCO_ESTACIONES:
+
+                # se marca antes para no reintentar en cada ciclo si falla
+                ultimo_refresco = time.time()
+
+                try:
+                    refrescar_estaciones(nombres)
+
+                except Exception as e:
+                    print(
+                        f"AVISO: no se pudo refrescar estaciones: {e}",
+                        flush=True,
+                    )
 
             ahora = datetime.now(
                 ZoneInfo("Europe/Madrid")
