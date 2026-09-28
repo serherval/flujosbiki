@@ -2,7 +2,7 @@
 """
 Captura un snapshot de BIKI Valladolid (feed GBFS oficial) y lo añade a
 data/historico.csv con las columnas que lee la app Shiny:
-    station_id, nombre, mecanicas, electricas, timestamp
+    station_id, nombre, mecanicas, electricas, capacidad, timestamp
 
 Replica la lógica de la versión anterior de la app en R:
   - station_information -> nombre de cada parada
@@ -31,7 +31,7 @@ BASE_URL = (
 ).rstrip("/")
 CSV_PATH = os.environ.get("CSV_PATH") or "data/historico.csv"
 ARCHIVO_DIR = os.path.join(os.path.dirname(CSV_PATH) or ".", "archivo")
-COLUMNAS = ["station_id", "nombre", "mecanicas", "electricas", "timestamp"]
+COLUMNAS = ["station_id", "nombre", "mecanicas", "electricas", "capacidad", "timestamp"]
 ESTACIONES_OMITIR = {"104"}
 
 
@@ -95,6 +95,7 @@ def main():
     status = get_gbfs("station_status")["data"]["stations"]
 
     nombres = {str(s["station_id"]): s.get("name", "") for s in info if str(s["station_id"]) not in ESTACIONES_OMITIR}
+    capacidades = {str(s["station_id"]): s.get("capacity", 0) for s in info if str(s["station_id"]) not in ESTACIONES_OMITIR}
     propulsion = {t["vehicle_type_id"]: t.get("propulsion_type", "") for t in tipos}
     ahora = datetime.now(ZoneInfo("Europe/Madrid")).strftime("%Y-%m-%d %H:%M:%S")
 
@@ -116,7 +117,7 @@ def main():
             # Alternativa si la estación no trae el desglose por tipo
             ele = s.get("num_ebikes_available", 0) or 0
             mec = max((s.get("num_bikes_available", 0) or 0) - ele, 0)
-        filas.append([sid, nombres.get(sid, sid), mec, ele, ahora])
+        filas.append([sid, nombres.get(sid, sid), mec, ele, capacidades.get(sid, 0), ahora])
 
     if not filas:
         sys.exit("El feed no devolvió estaciones; no se escribe nada.")
