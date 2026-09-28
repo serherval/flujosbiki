@@ -19,6 +19,9 @@ ARCHIVO_DIR = os.path.join(os.path.dirname(CSV_PATH) or ".", "archivo")
 
 INTERVALO = 30
 
+# Estaciones que el GBFS devuelve pero que no forman parte del servicio real.
+ESTACIONES_OMITIR = {"104"}
+
 # Estaciones dinámicas: se regeneran desde GBFS (station_information)
 DATA_DIR = os.path.dirname(CSV_PATH) or "."
 ESTACIONES_PATH = (
@@ -118,6 +121,7 @@ def cargar_metadata():
     nombres = {
         str(s["station_id"]): s.get("name", "")
         for s in info
+        if str(s["station_id"]) not in ESTACIONES_OMITIR
     }
 
     clase = {
@@ -154,6 +158,9 @@ def obtener_snapshot(nombres, clase):
     for s in status:
 
         sid = str(s["station_id"])
+
+        if sid in ESTACIONES_OMITIR:
+            continue
 
         mec = 0
         ele = 0
@@ -461,7 +468,11 @@ def refrescar_estaciones(nombres):
             "station_information no devolvió estaciones."
         )
 
-    previas = leer_estaciones_csv()
+    previas = {
+        sid: r
+        for sid, r in leer_estaciones_csv().items()
+        if sid not in ESTACIONES_OMITIR
+    }
     ultimas = ultima_capacidad_historica()
 
     ahora = datetime.now(
@@ -474,6 +485,10 @@ def refrescar_estaciones(nombres):
     for s in info:
 
         sid = str(s["station_id"])
+
+        if sid in ESTACIONES_OMITIR:
+            continue
+
         prev = previas.get(sid, {})
 
         cap = s.get("capacity")
@@ -563,10 +578,17 @@ def refrescar_estaciones(nombres):
 
             writer.writerows(cambios)
 
+    capacidad_total = sum(
+        int(r["capacidad"])
+        for r in resultado.values()
+        if str(r.get("capacidad", "")).isdigit()
+    )
+
     print(
         f"Estaciones actualizadas desde GBFS: "
         f"{len(resultado)} en {ESTACIONES_PATH} "
-        f"({len(cambios)} cambios de capacidad).",
+        f"({len(cambios)} cambios de capacidad). "
+        f"Capacidad total: {capacidad_total}.",
         flush=True,
     )
 
@@ -590,6 +612,11 @@ def main():
 
     print(
         f"CSV: {CSV_PATH}",
+        flush=True,
+    )
+
+    print(
+        f"Estaciones omitidas: {sorted(ESTACIONES_OMITIR)}",
         flush=True,
     )
 
