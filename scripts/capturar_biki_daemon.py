@@ -259,6 +259,11 @@ def leer_ultimo_estado():
                     ultimo_timestamp = timestamp
 
                 capacidad = row.get("capacidad", "")
+                try:
+                    capacidad = int(capacidad)
+                except (TypeError, ValueError):
+                    capacidad = 0
+
                 estado[str(row["station_id"])] = (
                     int(row["mecanicas"]),
                     int(row["electricas"]),
