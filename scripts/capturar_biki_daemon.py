@@ -44,6 +44,7 @@ COLUMNAS = [
     "nombre",
     "mecanicas",
     "electricas",
+    "capacidad",
     "timestamp",
 ]
 
@@ -124,6 +125,12 @@ def cargar_metadata():
         if str(s["station_id"]) not in ESTACIONES_OMITIR
     }
 
+    capacidades = {
+        str(s["station_id"]): s.get("capacity", 0)
+        for s in info
+        if str(s["station_id"]) not in ESTACIONES_OMITIR
+    }
+
     clase = {
         t["vehicle_type_id"]: clasificar(t)
         for t in tipos
@@ -135,10 +142,10 @@ def cargar_metadata():
         flush=True,
     )
 
-    return nombres, clase
+    return nombres, clase, capacidades
 
 
-def obtener_snapshot(nombres, clase):
+def obtener_snapshot(nombres, clase, capacidades):
     status = get_gbfs("station_status")["data"]["stations"]
 
     if not status:
@@ -202,7 +209,9 @@ def obtener_snapshot(nombres, clase):
                 0,
             )
 
-        estado[sid] = (mec, ele)
+        capacidad = capacidades.get(sid, 0)
+
+        estado[sid] = (mec, ele, capacidad)
 
         filas.append(
             [
@@ -210,6 +219,7 @@ def obtener_snapshot(nombres, clase):
                 nombres.get(sid, sid),
                 mec,
                 ele,
+                capacidad,
                 ahora,
             ]
         )
@@ -248,9 +258,11 @@ def leer_ultimo_estado():
                     estado = {}
                     ultimo_timestamp = timestamp
 
+                capacidad = row.get("capacidad", "")
                 estado[str(row["station_id"])] = (
                     int(row["mecanicas"]),
                     int(row["electricas"]),
+                    capacidad,
                 )
 
     except Exception as e:
@@ -453,7 +465,7 @@ def ultima_capacidad_historica():
     return ultimas
 
 
-def refrescar_estaciones(nombres):
+def refrescar_estaciones(nombres, capacidades):
     """
     Regenera estaciones.csv desde GBFS (station_information):
     nombre, lat, lon y capacidad siempre del feed. 'barrio' no existe
@@ -510,6 +522,8 @@ def refrescar_estaciones(nombres):
         }
 
         nombres[sid] = nombre
+        if capacidad != "":
+            capacidades[sid] = int(capacidad)
 
         if previas and sid not in previas:
             print(
@@ -635,7 +649,7 @@ def main():
 
         try:
 
-            nombres, clase = cargar_metadata()
+            nombres, clase, capacidades = cargar_metadata()
 
             break
 
@@ -669,7 +683,7 @@ def main():
                 ultimo_refresco = time.time()
 
                 try:
-                    refrescar_estaciones(nombres)
+                    refrescar_estaciones(nombres, capacidades)
 
                 except Exception as e:
                     print(
@@ -689,6 +703,7 @@ def main():
                 obtener_snapshot(
                     nombres,
                     clase,
+                    capacidades,
                 )
             )
 
@@ -709,13 +724,19 @@ def main():
                     for fila in filas
                 )
 
-                timestamp = filas[0][4]
+                total_capacidad = sum(
+                    fila[4]
+                    for fila in filas
+                )
+
+                timestamp = filas[0][5]
 
                 print(
                     f"[{timestamp}] CAMBIO -> "
                     f"{len(filas)} estaciones guardadas. "
                     f"Total: {total_mec} mecánicas, "
-                    f"{total_ele} eléctricas.",
+                    f"{total_ele} eléctricas, "
+                    f"capacidad {total_capacidad}.",
                     flush=True,
                 )
 
@@ -731,7 +752,7 @@ def main():
 
             else:
 
-                timestamp = filas[0][4]
+                timestamp = filas[0][5]
 
                 print(
                     f"[{timestamp}] Sin cambios.",
