@@ -8,7 +8,7 @@ cd /home/sergioh93/flujosbiki
 exec 9>/tmp/biki-sync.lock
 flock -n 9 || exit 0
 
-# Añadir únicamente los datos
+# Añadir únicamente los datos (incluye historico.csv e históricos diarios archivados)
 git add data
 
 # Si no hay cambios, no hacer nada
