@@ -159,9 +159,30 @@ get_indice <- function() {
   cache_get("indice", 1800, function() {
     tryCatch({
       x <- trimws(suppressWarnings(readLines(paste0(ARCHIVO_URL, "/indice.txt"), warn = FALSE)))
-      x[grepl("^historico_[0-9]{4}-[0-9]{2}\\.csv$", x)]
+      x[grepl("^historico_[0-9]{4}-[0-9]{2}(?:-[0-9]{2})?\\.csv$", x)]
     }, error = function(e) NULL)
   }, character(0), reintento = 300)
+}
+
+# Devuelve la fecha de inicio y fin que cubre un histórico.
+# Se admiten tanto los ficheros mensuales antiguos (AAAA-MM)
+# como los nuevos ficheros diarios (AAAA-MM-DD).
+archivo_periodo <- function(nombre) {
+  sub("\\.csv$", "", sub("^historico_", "", nombre))
+}
+
+archivo_inicio <- function(nombre) {
+  x <- archivo_periodo(nombre)
+  as.Date(if (nchar(x) == 7) paste0(x, "-01") else x)
+}
+
+archivo_fin <- function(nombre) {
+  x <- archivo_periodo(nombre)
+  if (nchar(x) == 7) {
+    ceiling_date(as.Date(paste0(x, "-01")), "month") - days(1)
+  } else {
+    as.Date(x)
+  }
 }
 
 VACIO_META <- tibble(station_id = character(), lat = double(), lon = double(),
@@ -726,21 +747,28 @@ server <- function(input, output, session) {
   per_ev <- reactive(if (per() == "actual") "24h" else per())
   es_actual <- reactive(per() == "actual")
   
-  # ---- Carga (solo los meses archivados que hacen falta para el periodo) ----
+  # ---- Carga de históricos archivados que se solapan con el periodo ----
+  # Convive con los ficheros mensuales antiguos y los diarios nuevos.
   base <- reactive({
     cu <- cur(); idx <- indice(); me <- meta(); periodo <- per_ev()
     arch <- character(0)
     if (length(idx)) {
-      meses <- sub("^historico_([0-9]{4}-[0-9]{2})\\.csv$", "\\1", idx)
       if (periodo == "todo") {
         arch <- idx
       } else {
         anchor <- if (nrow(cu) > 0) max(cu$timestamp) else {
-          u <- get_archivo(idx[order(meses, decreasing = TRUE)][1])
+          idx_orden <- order(as.Date(vapply(idx, archivo_inicio, character(1))), decreasing = TRUE)
+          u <- get_archivo(idx[idx_orden][1])
           if (nrow(u) > 0) max(u$timestamp) else Sys.time()
         }
-        ini <- anchor - SEG_PERIODO[[periodo]]
-        arch <- idx[meses >= format(ini, "%Y-%m", tz = TZ)]
+        ini <- as.Date(anchor - SEG_PERIODO[[periodo]], tz = TZ)
+        fin <- as.Date(anchor, tz = TZ)
+
+        inicio_arch <- as.Date(vapply(idx, archivo_inicio, character(1)))
+        fin_arch <- as.Date(vapply(idx, archivo_fin, character(1)))
+
+        # Cargar cualquier archivo cuyo periodo se solape con la ventana solicitada.
+        arch <- idx[inicio_arch <= fin & fin_arch >= ini]
       }
     }
     key <- paste(paste(arch, collapse = ","), nrow(cu),
@@ -758,9 +786,11 @@ server <- function(input, output, session) {
   primer <- reactive({
     idx <- indice(); cu <- cur()
     if (length(idx)) {
-      meses <- sub("^historico_([0-9]{4}-[0-9]{2})\\.csv$", "\\1", idx)
-      a <- get_archivo(idx[order(meses)][1])
-      if (nrow(a) > 0) return(min(a$timestamp))
+      orden <- order(as.Date(vapply(idx, archivo_inicio, character(1))))
+      for (nombre in idx[orden]) {
+        a <- get_archivo(nombre)
+        if (nrow(a) > 0) return(min(a$timestamp))
+      }
     }
     if (nrow(cu) > 0) min(cu$timestamp) else as.POSIXct(NA)
   })
