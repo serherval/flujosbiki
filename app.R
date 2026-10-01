@@ -292,7 +292,11 @@ asignar_barrio <- function(lat, lon, geo) {
     f <- geo$feats[[k]]
     for (poly in f$polys) {
       sel <- ok & is.na(res)
-      if (any(sel)) res[sel][pip_poligono(lon[sel], lat[sel], poly)] <- f$nombre
+      if (any(sel)) {
+        idx <- which(sel)
+        dentro <- pip_poligono(lon[idx], lat[idx], poly)
+        res[idx[dentro]] <- f$nombre
+      }
     }
   }
   res[ok & is.na(res)] <- FUERA_BARRIO
