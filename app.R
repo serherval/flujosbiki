@@ -25,7 +25,7 @@ LEGACY_URL     <- Sys.getenv("LEGACY_CSV_URL",
 STATION_INFO_URL <- Sys.getenv("STATION_INFO_URL",
                                unset = "https://valladolid.publicbikesystem.net/customer/gbfs/v2/es/station_information")
 
-INTERVALO_MS   <- 5 * 60 * 1000   # refresco del mes en curso (GitHub cachea ~5 min)
+INTERVALO_MS   <- 5 * 60 * 1000   # refresco de los datos en curso (GitHub cachea ~5 min)
 RESOLUCION_MIN <- 5               # al leer, se conserva 1 medición cada 5 min (rendimiento)
 GAP_MAX_MIN    <- 15              # una medición "vale" como mucho 15 min (huecos en los datos)
 
@@ -159,7 +159,8 @@ get_indice <- function() {
   cache_get("indice", 1800, function() {
     tryCatch({
       x <- trimws(suppressWarnings(readLines(paste0(ARCHIVO_URL, "/indice.txt"), warn = FALSE)))
-      x[grepl("^historico_[0-9]{4}-[0-9]{2}\\.csv$", x)]
+      # Compatibilidad: históricos antiguos mensuales (YYYY-MM) y nuevos diarios (YYYY-MM-DD).
+      x[grepl("^historico_[0-9]{4}-[0-9]{2}(-[0-9]{2})?\\.csv$", x)]
     }, error = function(e) NULL)
   }, character(0), reintento = 300)
 }
@@ -726,21 +727,37 @@ server <- function(input, output, session) {
   per_ev <- reactive(if (per() == "actual") "24h" else per())
   es_actual <- reactive(per() == "actual")
   
-  # ---- Carga (solo los meses archivados que hacen falta para el periodo) ----
+  # ---- Carga de archivos archivados necesarios para el periodo ----
+  # Acepta históricos mensuales YYYY-MM (legacy) y diarios YYYY-MM-DD.
+  # En periodos acotados se seleccionan solo los archivos cuyo intervalo
+  # puede solaparse con el periodo solicitado.
   base <- reactive({
     cu <- cur(); idx <- indice(); me <- meta(); periodo <- per_ev()
     arch <- character(0)
     if (length(idx)) {
-      meses <- sub("^historico_([0-9]{4}-[0-9]{2})\\.csv$", "\\1", idx)
+      inicio_archivo <- function(nombre) {
+        x <- sub("^historico_([0-9]{4}-[0-9]{2}(?:-[0-9]{2})?)\\.csv$", "\\1", nombre)
+        if (grepl("^[0-9]{4}-[0-9]{2}$", x)) as.Date(paste0(x, "-01")) else as.Date(x)
+      }
+      fin_archivo <- function(nombre) {
+        x <- sub("^historico_([0-9]{4}-[0-9]{2}(?:-[0-9]{2})?)\\.csv$", "\\1", nombre)
+        if (grepl("^[0-9]{4}-[0-9]{2}$", x)) {
+          as.Date(ceiling_date(as.Date(paste0(x, "-01")), "month") - days(1))
+        } else {
+          as.Date(x)
+        }
+      }
       if (periodo == "todo") {
         arch <- idx
       } else {
         anchor <- if (nrow(cu) > 0) max(cu$timestamp) else {
-          u <- get_archivo(idx[order(meses, decreasing = TRUE)][1])
+          orden <- order(vapply(idx, inicio_archivo, as.Date(NA)), decreasing = TRUE)
+          u <- get_archivo(idx[orden][1])
           if (nrow(u) > 0) max(u$timestamp) else Sys.time()
         }
         ini <- anchor - SEG_PERIODO[[periodo]]
-        arch <- idx[meses >= format(ini, "%Y-%m", tz = TZ)]
+        ini_fecha <- as.Date(format(ini, "%Y-%m-%d", tz = TZ))
+        arch <- idx[vapply(idx, function(n) fin_archivo(n) >= ini_fecha, logical(1))]
       }
     }
     key <- paste(paste(arch, collapse = ","), nrow(cu),
@@ -758,8 +775,11 @@ server <- function(input, output, session) {
   primer <- reactive({
     idx <- indice(); cu <- cur()
     if (length(idx)) {
-      meses <- sub("^historico_([0-9]{4}-[0-9]{2})\\.csv$", "\\1", idx)
-      a <- get_archivo(idx[order(meses)][1])
+      inicio_archivo <- function(nombre) {
+        x <- sub("^historico_([0-9]{4}-[0-9]{2}(?:-[0-9]{2})?)\\.csv$", "\\1", nombre)
+        if (grepl("^[0-9]{4}-[0-9]{2}$", x)) as.Date(paste0(x, "-01")) else as.Date(x)
+      }
+      a <- get_archivo(idx[order(vapply(idx, inicio_archivo, as.Date(NA)))][1])
       if (nrow(a) > 0) return(min(a$timestamp))
     }
     if (nrow(cu) > 0) min(cu$timestamp) else as.POSIXct(NA)
