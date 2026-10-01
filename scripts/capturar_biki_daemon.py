@@ -288,7 +288,7 @@ def leer_ultimo_estado():
     return estado or None
 
 
-def mes_del_archivo(path):
+def dia_del_archivo(path):
     with open(
         path,
         encoding="utf-8",
@@ -303,7 +303,7 @@ def mes_del_archivo(path):
 
     ts = next(csv.reader([fila]))[-1]
 
-    return ts[:7] if len(ts) >= 7 else None
+    return ts[:10] if len(ts) >= 10 else None
 
 
 def actualizar_indice():
@@ -331,18 +331,17 @@ def actualizar_indice():
             )
 
 
-def rotar_si_cambia_mes(mes_actual):
-
+def rotar_si_cambia_dia(dia_actual):
     if (
         not os.path.exists(CSV_PATH)
         or os.path.getsize(CSV_PATH) == 0
     ):
-        return
+        return False
 
-    mes = mes_del_archivo(CSV_PATH)
+    dia = dia_del_archivo(CSV_PATH)
 
-    if not mes or mes == mes_actual:
-        return
+    if not dia or dia == dia_actual:
+        return False
 
     os.makedirs(
         ARCHIVO_DIR,
@@ -351,11 +350,10 @@ def rotar_si_cambia_mes(mes_actual):
 
     destino = os.path.join(
         ARCHIVO_DIR,
-        f"historico_{mes}.csv",
+        f"historico_{dia}.csv",
     )
 
     if os.path.exists(destino):
-
         with open(
             CSV_PATH,
             encoding="utf-8",
@@ -366,14 +364,12 @@ def rotar_si_cambia_mes(mes_actual):
             encoding="utf-8",
             newline="",
         ) as dst:
-
             next(src, None)
             dst.write(src.read())
 
         os.remove(CSV_PATH)
 
     else:
-
         os.replace(
             CSV_PATH,
             destino,
@@ -382,9 +378,11 @@ def rotar_si_cambia_mes(mes_actual):
     actualizar_indice()
 
     print(
-        f"Rotado {mes} -> {destino}",
+        f"Rotado {dia} -> {destino}",
         flush=True,
     )
+
+    return True
 
 
 def guardar_snapshot(filas):
@@ -480,9 +478,14 @@ def main():
                 ZoneInfo("Europe/Madrid")
             )
 
-            mes_actual = ahora.strftime("%Y-%m")
+            dia_actual = ahora.strftime("%Y-%m-%d")
 
-            rotar_si_cambia_mes(mes_actual)
+            rotado = rotar_si_cambia_dia(dia_actual)
+
+            # Al abrir un día nuevo hay que guardar la primera foto aunque
+            # el estado de las estaciones no haya cambiado desde ayer.
+            if rotado:
+                estado_anterior = None
 
             filas, estado_actual, sin_clasificar = (
                 obtener_snapshot(
