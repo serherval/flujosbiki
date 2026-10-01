@@ -9,9 +9,10 @@ Replica la lógica de la versión anterior de la app en R:
   - vehicle_types       -> propulsion_type "human" = mecánica, "electric" = eléctrica
   - station_status      -> vehicle_types_available (nº de bicis por tipo)
 
-Rotación mensual: historico.csv contiene solo el mes en curso. Cuando cambia
-el mes, el archivo se mueve a data/archivo/historico_AAAA-MM.csv y se regenera
+Rotación diaria: historico.csv contiene solo el día en curso. Cuando cambia
+el día, el archivo se mueve a data/archivo/historico_AAAA-MM-DD.csv y se regenera
 data/archivo/indice.txt (lista de archivos, para que la app los pueda ofrecer).
+Los históricos mensuales existentes se mantienen y la app admite ambos formatos.
 
 Solo usa la biblioteca estándar de Python (no hay que instalar nada).
 """
@@ -51,31 +52,31 @@ def get_gbfs(feed, intentos=3):
     sys.exit(f"No se pudo leer {url}: {ultimo_error}")
 
 
-def mes_del_archivo(path):
-    """Mes (AAAA-MM) de la primera fila de datos del CSV; timestamp = última columna."""
+def dia_del_archivo(path):
+    """Día (AAAA-MM-DD) de la primera fila de datos del CSV."""
     with open(path, encoding="utf-8", newline="") as f:
         next(f, None)  # cabecera
         fila = next(f, "")
     if not fila.strip():
         return None
     ts = next(csv.reader([fila]))[-1]
-    return ts[:7] if len(ts) >= 7 else None
+    return ts[:10] if len(ts) >= 10 else None
 
 
-def rotar_si_cambia_mes(mes_actual):
+def rotar_si_cambia_dia(dia_actual):
     if not os.path.exists(CSV_PATH) or os.path.getsize(CSV_PATH) == 0:
         return
-    mes = mes_del_archivo(CSV_PATH)
-    if not mes or mes == mes_actual:
+    dia = dia_del_archivo(CSV_PATH)
+    if not dia or dia == dia_actual:
         return
     os.makedirs(ARCHIVO_DIR, exist_ok=True)
-    destino = os.path.join(ARCHIVO_DIR, f"historico_{mes}.csv")
+    destino = os.path.join(ARCHIVO_DIR, f"historico_{dia}.csv")
     if os.path.exists(destino):
-        # Ya existía un archivo de ese mes (p. ej. relanzado a mano): se une.
+        # Ya existía un archivo de ese día: se une sin duplicar la cabecera.
         with open(CSV_PATH, encoding="utf-8", newline="") as src, open(
             destino, "a", encoding="utf-8", newline=""
         ) as dst:
-            next(src, None)  # sin cabecera duplicada
+            next(src, None)
             dst.write(src.read())
         os.remove(CSV_PATH)
     else:
@@ -86,7 +87,7 @@ def rotar_si_cambia_mes(mes_actual):
     )
     with open(os.path.join(ARCHIVO_DIR, "indice.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(archivos) + "\n")
-    print(f"Rotado {mes} -> {destino}")
+    print(f"Rotado {dia} -> {destino}")
 
 
 def main():
@@ -122,7 +123,7 @@ def main():
     if not filas:
         sys.exit("El feed no devolvió estaciones; no se escribe nada.")
 
-    rotar_si_cambia_mes(ahora[:7])
+    rotar_si_cambia_dia(ahora[:10])
 
     nuevo = not os.path.exists(CSV_PATH) or os.path.getsize(CSV_PATH) == 0
     os.makedirs(os.path.dirname(CSV_PATH) or ".", exist_ok=True)
