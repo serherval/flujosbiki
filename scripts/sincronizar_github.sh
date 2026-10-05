@@ -19,6 +19,7 @@ fi
 # Crear commit
 git commit -m "Capturas BIKI $(TZ=Europe/Madrid date '+%Y-%m-%d %H:%M')"
 
-# Subir a GitHub
-git pull --rebase
-git push
+# El capturador puede seguir escribiendo historico.csv después del commit.
+# No hacemos pull --rebase aquí porque exigiría un working tree limpio y
+# bloquearía la sincronización mientras el daemon sigue capturando.
+git push origin main
