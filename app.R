@@ -292,11 +292,7 @@ asignar_barrio <- function(lat, lon, geo) {
     f <- geo$feats[[k]]
     for (poly in f$polys) {
       sel <- ok & is.na(res)
-      if (any(sel)) {
-        idx <- which(sel)
-        dentro <- pip_poligono(lon[idx], lat[idx], poly)
-        res[idx[dentro]] <- f$nombre
-      }
+      if (any(sel)) res[sel][pip_poligono(lon[sel], lat[sel], poly)] <- f$nombre
     }
   }
   res[ok & is.na(res)] <- FUERA_BARRIO
@@ -529,7 +525,7 @@ METODOLOGIA <- div(class = "metodo",
                    
                    tags$h4("6. Cómo leer cada gráfico", class = "pregunta"),
                    tags$ul(
-                     tags$li(HTML("<b>Mapa de calor:</b> cada punto es una estación, con su ocupación media ponderada por tiempo; el color de cada zona es la suma de bicis entre la suma de capacidades de sus estaciones.")),
+                     tags$li(HTML("<b>Mapa de calor:</b> cada punto es una estación, con su ocupación media ponderada por tiempo; el color de cada zona es la suma de bicis entre la suma de capacidades de sus estaciones. La escala de color va de 0% al máximo de ocupación existente entre zonas y estaciones.")),
                      tags$li(HTML("<b>Problemas recurrentes (pestaña General):</b> % del tiempo del periodo en cada situación. Las situaciones se solapan: una estación vacía cuenta también como ≤10 % y ≤20 %. «Ocupación media» es bicis / capacidad ponderada por tiempo. Respeta los filtros de Zona, Estación y Periodo.")),
                      tags$li(HTML("<b>Evolución de las bicis (Evolutivos):</b> puede verse como número de bicis disponibles o como % de ocupación, para todas las bicis (mecánicas y eléctricas apiladas, más la línea de Total), solo mecánicas o solo eléctricas. Cada punto es la media de las mediciones del intervalo.")),
                      tags$li(HTML("<b>Resolución temporal (Evolutivos):</b> en automático, 5 minutos hasta 36 horas, 1 hora hasta 8 días, 3 horas hasta 40 días y 1 día a partir de ahí; también puede fijarse a mano.")),
@@ -588,10 +584,10 @@ ui <- fluidPage(
     @media(min-width:900px){.kpi-donuts{grid-template-columns:minmax(0,1fr) minmax(155px,.78fr) repeat(2,minmax(0,1fr));max-width:none;align-items:stretch;gap:12px;}.dona{width:clamp(130px,13vw,175px);}.dona-centro b{font-size:22px;}.kpi-extra-box{padding:14px 9px;}}
 @media(min-width:600px) and (max-width:899px){.kpi-donuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:none;}.kpi-extra{min-height:150px;}.dona{width:150px;}.dona-centro b{font-size:20px;}}
 
-    @media(max-width:767px){.container-fluid{padding-left:12px;padding-right:12px;}.hero{padding:21px 19px;border-radius:17px;}.hero:after{font-size:52px;right:8px;}.selectize-input,.selectize-input input,.form-control,.dataTables_filter input{font-size:16px!important;}.nav-tabs{position:sticky;top:0;z-index:1020;background:var(--bg);}.nav-tabs>li>a{padding:12px 12px;}.filtros-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 10px;}.filtros-grid .f-periodo,.filtros-grid .estado-datos{grid-column:1/-1;}.filtros-grid .estado-datos{padding-bottom:8px;}.filtros-grid .form-group{margin-bottom:9px;}.filtros-grid.ev{grid-template-columns:1fr;}.kpi-extra{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:0;}.kpi-extra-box{padding:10px 7px;gap:5px;justify-content:center;align-items:center;text-align:center;}.kpi-extra-box + .kpi-extra-box{border-left:1px solid var(--line);border-top:0;}.kpi-extra-box.vacia{border-top:3px solid #dc2626;}.kpi-extra-box.sinelec{border-top:3px solid var(--green);}.kpi-extra-box .ico{font-size:18px;}.kpi-extra-box .etiqueta{font-size:9px;letter-spacing:.04em;}.kpi-extra-box .valor{font-size:19px;}.kpi-extra-box .sub{display:block;font-size:9px;white-space:normal;}.banner{font-size:12px;}table.dataTable th,table.dataTable td{padding:6px 8px!important;font-size:12px;}.dona{width:135px;}.dona-centro b{font-size:17px;}}
+    @media(max-width:767px){.container-fluid{padding-left:12px;padding-right:12px;}.hero{padding:21px 19px;border-radius:17px;}.hero:after{font-size:52px;right:8px;}.selectize-input,.selectize-input input,.form-control,.dataTables_filter input{font-size:16px!important;}.nav-tabs{position:sticky;top:0;z-index:1020;background:var(--bg);}.nav-tabs>li>a{padding:12px 12px;}.filtros-grid{display:grid;grid-template-columns:1fr;gap:0;}.filtros-grid .f-periodo,.filtros-grid .estado-datos{grid-column:1/-1;}.filtros-grid .estado-datos{padding-bottom:8px;}.filtros-grid .form-group{margin-bottom:9px;}.filtros-grid.ev{grid-template-columns:1fr;}.kpi-extra{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:0;}.kpi-extra-box{padding:10px 7px;gap:5px;justify-content:center;align-items:center;text-align:center;}.kpi-extra-box + .kpi-extra-box{border-left:1px solid var(--line);border-top:0;}.kpi-extra-box.vacia{border-top:3px solid #dc2626;}.kpi-extra-box.sinelec{border-top:3px solid var(--green);}.kpi-extra-box .ico{font-size:18px;}.kpi-extra-box .etiqueta{font-size:9px;letter-spacing:.04em;}.kpi-extra-box .valor{font-size:19px;}.kpi-extra-box .sub{display:block;font-size:9px;white-space:normal;}.banner{font-size:12px;}table.dataTable th,table.dataTable td{padding:6px 8px!important;font-size:12px;}.dona{width:135px;}.dona-centro b{font-size:17px;}}
     @media(min-width:768px){.filtros-grid{grid-template-columns:repeat(3,1fr) auto;align-items:end;}.filtros-grid .f-periodo,.filtros-grid .estado-datos{grid-column:auto;}.filtros-grid .estado-datos{padding-bottom:12px;}.filtros-grid.ev{grid-template-columns:260px 1fr;}}
   "))),
-
+  
   
   div(class = "hero",
       div(class = "hero-badge", "🚲  BIKI Valladolid · datos abiertos"),
@@ -611,8 +607,8 @@ ui <- fluidPage(
                                     div(class = "estado-datos", uiOutput("estado_datos"))
   )),
   uiOutput("aviso_barrios"),
-
-
+  
+  
   tabsetPanel(id = "tabs", type = "tabs",
               
               # ======================= GENERAL =======================
@@ -623,7 +619,7 @@ ui <- fluidPage(
                        
                        fluidRow(column(12,
                                        tags$h4("Mapa de calor: % de ocupación por zona", class = "pregunta"),
-                                       div(class = "leyenda", "Rojo = pocas bicis en relación con los anclajes; verde = muchas. Cada zona se colorea según la ocupación media de sus estaciones (puntos). Las estaciones fuera de las zonas (extrarradio u otros municipios) solo aparecen como punto. Con una zona seleccionada solo se ve esa zona."),
+                                       div(class = "leyenda", "Rojo = pocas bicis en relación con los anclajes; verde = muchas. La escala va de 0% al máximo de ocupación que haya en ese momento (no hasta 100%), así que el verde marca lo mejor surtido. Cada zona se colorea según la ocupación media de sus estaciones (puntos). Las estaciones fuera de las zonas (extrarradio u otros municipios) solo aparecen como punto. Con una zona seleccionada solo se ve esa zona."),
                                        uiOutput("escala_mapa"),
                                        plotlyOutput("g_mapa", height = "60vh")
                        )),
@@ -995,9 +991,10 @@ server <- function(input, output, session) {
     leyenda_dona(Map(function(b) list(color = COL_BANDAS[[b]], etq = b), as.character(tab$banda)))
   })
   
-  output$g_mapa <- renderPlotly({
+  # Datos del mapa de calor (los usan el mapa y la leyenda de color en móvil).
+  # La escala de color va de 0 % al máximo de ocupación que exista (zonas y estaciones).
+  mapa_occ <- reactive({
     d <- d_per(); hay_datos(d)
-    movil <- es_movil("g_mapa")
     d <- d[!is.na(d$lat) & !is.na(d$lon), ]
     validate(need(nrow(d) > 0, "No hay coordenadas de las estaciones (ver estaciones.csv)."))
     ocup <- function(g) g %>% summarise(
@@ -1006,12 +1003,20 @@ server <- function(input, output, session) {
     est <- d %>% group_by(station_id, nombre, barrio, lat, lon) %>% ocup() %>% filter(is.finite(occ))
     validate(need(nrow(est) > 0, "Sin datos de ocupación."))
     est$hover <- paste0(est$nombre, "<br>", est$barrio, "<br>Ocupación: ", fmt_pct(est$occ))
+    bo <- d %>% filter(!barrio %in% c(SIN_BARRIO, FUERA_BARRIO)) %>% group_by(barrio) %>% ocup() %>% filter(is.finite(occ))
+    bo$hover <- paste0("<b>", bo$barrio, "</b><br>Ocupación: ", fmt_pct(bo$occ), "<br>", fmt_num(bo$n), " estaciones")
+    zmax <- suppressWarnings(max(c(est$occ, bo$occ), na.rm = TRUE))
+    if (!is.finite(zmax) || zmax <= 0) zmax <- 100
+    list(est = est, bo = bo, zmax = zmax)
+  })
+  
+  output$g_mapa <- renderPlotly({
+    mo <- mapa_occ(); est <- mo$est; bo <- mo$bo; zmax <- mo$zmax
+    movil <- es_movil("g_mapa")
     
     ext <- max(diff(range(est$lat)), diff(range(est$lon)) * 0.75)
     zoom <- if (ext < 0.01) 15 else if (ext < 0.03) 14 else if (ext < 0.06) 13 else 12
     
-    bo <- d %>% filter(!barrio %in% c(SIN_BARRIO, FUERA_BARRIO)) %>% group_by(barrio) %>% ocup() %>% filter(is.finite(occ))
-    bo$hover <- paste0("<b>", bo$barrio, "</b><br>Ocupación: ", fmt_pct(bo$occ), "<br>", fmt_num(bo$n), " estaciones")
     
     p <- plot_ly()
     if (!is.null(GEO) && nrow(bo) > 0) {
@@ -1022,7 +1027,7 @@ server <- function(input, output, session) {
           list(type = "Feature", id = f$id, properties = list(nombre = f$nombre), geometry = f$geometry)))
         zz <- bo[match(vapply(fs, function(f) f$nombre, ""), bo$barrio), ]
         p <- p %>% add_trace(type = "choroplethmapbox", geojson = gj, locations = vapply(fs, function(f) f$id, ""),
-                             z = zz$occ, zmin = 0, zmax = 100, colorscale = ESCALA_OCUP, showscale = FALSE,
+                             z = zz$occ, zmin = 0, zmax = zmax, colorscale = ESCALA_OCUP, showscale = FALSE,
                              marker = list(opacity = 0.55, line = list(width = 1.2, color = "#ffffff")),
                              text = zz$hover, hoverinfo = "text", showlegend = FALSE)
       }
@@ -1033,12 +1038,12 @@ server <- function(input, output, session) {
       bb <- inner_join(bo, bp, by = "barrio")
       p <- p %>% add_trace(type = "scattermapbox", mode = "markers", lat = bb$lat, lon = bb$lon,
                            marker = list(size = 42, opacity = 0.5, color = bb$occ, colorscale = ESCALA_OCUP,
-                                         cmin = 0, cmax = 100, showscale = FALSE),
+                                         cmin = 0, cmax = zmax, showscale = FALSE),
                            text = bb$hover, hoverinfo = "text", showlegend = FALSE)
     }
     p %>%
       add_trace(type = "scattermapbox", mode = "markers", lat = est$lat, lon = est$lon,
-                marker = list(size = if (movil) 12 else 8, color = est$occ, colorscale = ESCALA_OCUP, cmin = 0, cmax = 100,
+                marker = list(size = if (movil) 12 else 8, color = est$occ, colorscale = ESCALA_OCUP, cmin = 0, cmax = zmax,
                               showscale = !movil, colorbar = list(title = "% ocup.", len = 0.6, ticksuffix = "%"),
                               opacity = 1),
                 text = est$hover, hoverinfo = "text", showlegend = FALSE) %>%
@@ -1054,11 +1059,13 @@ server <- function(input, output, session) {
   # Leyenda de color del mapa para pantallas estrechas (en escritorio se usa la barra de color de plotly)
   output$escala_mapa <- renderUI({
     if (!es_movil("g_mapa")) return(NULL)
+    mo <- tryCatch(mapa_occ(), error = function(e) NULL)
+    if (is.null(mo)) return(NULL)
     grad <- paste0("linear-gradient(to right, ",
                    paste(vapply(ESCALA_OCUP, function(z) paste0(z[[2]], " ", z[[1]] * 100, "%"), ""), collapse = ", "), ")")
-    div(class = "escala-mapa", tags$span("0 %"),
+    div(class = "escala-mapa", tags$span("0%"),
         div(class = "barra", style = paste0("background:", grad, ";")),
-        tags$span("100 % ocupación"))
+        tags$span(paste0(fmt_pct(mo$zmax), " (máx.)")))
   })
   
   output$tabla_persistencia <- renderDT({
@@ -1098,8 +1105,8 @@ server <- function(input, output, session) {
                   backgroundSize = "100% 80%", backgroundRepeat = "no-repeat", backgroundPosition = "center")
   })
   
-
-
+  
+  
   # ======================= EVOLUTIVOS ====================================
   
   snap_hist <- reactive(resumen_snap(d_hist()))
