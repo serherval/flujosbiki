@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
 cd /home/sergioh93/flujosbiki
 
@@ -16,10 +16,13 @@ if git diff --cached --quiet; then
     exit 0
 fi
 
-# Crear commit
+# Crear el commit local con las capturas
 git commit -m "Capturas BIKI $(TZ=Europe/Madrid date '+%Y-%m-%d %H:%M')"
 
-# El capturador puede seguir escribiendo historico.csv después del commit.
-# No hacemos pull --rebase aquí porque exigiría un working tree limpio y
-# bloquearía la sincronización mientras el daemon sigue capturando.
+# GitHub puede haber recibido cambios externos (por ejemplo, una actualización
+# de app.R desde GitHub). Reaplicar nuestro commit de datos sobre main antes
+# de hacer push para evitar que una actualización externa bloquee el servicio.
+git pull --rebase origin main
+
+# Subir las capturas ya rebasadas.
 git push origin main
