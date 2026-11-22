@@ -190423,3 +190423,731 @@ station_id,nombre,mecanicas,electricas,capacidad,timestamp
 110,1003 La Cistérniga San Cristóbal,1,6,11,2026-11-22 20:05:16
 111,510 Hospital Río Hortega,8,8,27,2026-11-22 20:05:16
 112,509 Barrio Arcas Reales,2,0,11,2026-11-22 20:05:16
+2,001 Fuente Dorada,3,5,27,2026-11-22 20:05:46
+3,002 Plaza Madrid,1,1,25,2026-11-22 20:05:46
+4,003 Estación de Tren,8,2,27,2026-11-22 20:05:46
+5,004 Plaza Circular,8,2,27,2026-11-22 20:05:46
+6,005 Plaza Trinidad,5,3,27,2026-11-22 20:05:46
+7,006 Plaza Santa Cruz,0,4,15,2026-11-22 20:05:46
+8,007 Plaza Poniente,7,10,47,2026-11-22 20:05:46
+9,008 Paseo Filipinos,5,2,27,2026-11-22 20:05:46
+10,009 Plaza Zorrilla,5,7,27,2026-11-22 20:05:46
+11,010 Cadenas de San Gregorio,6,1,15,2026-11-22 20:05:46
+12,011 Facultad Medicina,9,2,23,2026-11-22 20:05:46
+13,012 Teatro Cervantes,8,5,27,2026-11-22 20:05:46
+14,013 CASA DEL ESTUDIANTE- CLÍNICO,2,0,23,2026-11-22 20:05:46
+15,014 Plaza de San Miguel,4,5,19,2026-11-22 20:05:46
+16,015 Plaza de la Libertad,3,8,27,2026-11-22 20:05:46
+17,016 Plaza Caño Argales,14,2,27,2026-11-22 20:05:46
+18,017 PLAZA DE SAN JUAN,5,0,23,2026-11-22 20:05:46
+19,018 Duque de la Victoria,6,3,19,2026-11-22 20:05:46
+20,019 Angustias,2,1,15,2026-11-22 20:05:46
+21,020 MARÍA DE MOLINA,3,4,23,2026-11-22 20:05:46
+22,101 Fuente El Sol,7,1,15,2026-11-22 20:05:46
+23,102 Calle del Abedul,1,3,15,2026-11-22 20:05:46
+24,103 Calle Jupiter,2,2,15,2026-11-22 20:05:46
+25,201 CENTRO CÍVICO ESGUEVA,8,5,23,2026-11-22 20:05:46
+26,202 Campus Miguel Delibes,6,3,23,2026-11-22 20:05:46
+27,203 Plaza Ribera de Castilla,4,4,19,2026-11-22 20:05:46
+28,204 COLEGIO ENTRE RÍOS,4,1,23,2026-11-22 20:05:46
+29,205 HOSPITAL RONDILLA,5,1,19,2026-11-22 20:05:46
+30,206 Calle del Portillo de Balboa #1,5,3,19,2026-11-22 20:05:46
+31,207 Av. Santander 16,3,1,11,2026-11-22 20:05:46
+32,208 Facultad Ciencias Económicas,5,5,19,2026-11-22 20:05:46
+33,209 Paseo del Cauce,5,0,19,2026-11-22 20:05:46
+34,210 Plaza de los Vadillos,0,1,27,2026-11-22 20:05:46
+35,301 Centro Cívico Zona Este,4,0,15,2026-11-22 20:05:46
+36,302 Plaza Mayo,4,2,11,2026-11-22 20:05:46
+37,303 Calle de la Golondrina,3,4,19,2026-11-22 20:05:46
+38,304 Calle de la Cigüeña,1,0,11,2026-11-22 20:05:46
+39,305 Calle del Cometa,8,0,23,2026-11-22 20:05:46
+40,306 Centro Cívico Pilarica,5,0,11,2026-11-22 20:05:46
+41,401 Avenida Segovia,5,2,27,2026-11-22 20:05:46
+42,402 Calle Arca Real,2,5,19,2026-11-22 20:05:46
+43,403 Paseo Arco de Ladrillo,4,2,19,2026-11-22 20:05:46
+44,404 Calle de Andalucía,1,2,19,2026-11-22 20:05:46
+45,405 Plaza Gutiérrez Semprún,7,5,19,2026-11-22 20:05:46
+46,406 Paseo de Juan Carlos I,3,7,23,2026-11-22 20:05:46
+47,407 Calle General Shelly,7,6,23,2026-11-22 20:05:46
+48,408 Calle de Embajadores,2,4,19,2026-11-22 20:05:46
+49,501 Ctra. Segovia - UEMC,3,4,23,2026-11-22 20:05:46
+50,502 Calle de Peñalara,1,2,11,2026-11-22 20:05:46
+51,503 Calle de Daniel del Olmo González,2,2,11,2026-11-22 20:05:46
+52,504 Calle Bronce,7,0,11,2026-11-22 20:05:46
+53,505 Calle Plata,1,1,11,2026-11-22 20:05:46
+54,506 Calle del Aluminio,5,0,11,2026-11-22 20:05:46
+55,507 Calle Cromo,1,1,11,2026-11-22 20:05:46
+56,508 Calle Cobalto,3,3,10,2026-11-22 20:05:46
+57,"601 Paseo Zorrilla, 328",5,11,23,2026-11-22 20:05:46
+58,602 Casa de la India,1,0,23,2026-11-22 20:05:46
+59,"603 Paseo Zorrilla, 132",9,3,19,2026-11-22 20:05:46
+60,604 Espacio Joven Sur Valladolid,4,2,19,2026-11-22 20:05:46
+61,605 Polideportivo Ponce de León,6,0,23,2026-11-22 20:05:46
+62,606 Calle Vives,9,0,15,2026-11-22 20:05:46
+63,607 Calle Joaquín María Jalón,11,4,19,2026-11-22 20:05:46
+64,608 Calle Doctor Moreno,2,2,19,2026-11-22 20:05:46
+65,609 Plaza de Toros ,4,1,22,2026-11-22 20:05:46
+66,701 CDO Covaresa,5,9,21,2026-11-22 20:05:46
+67,702 Calle Atenas,2,5,15,2026-11-22 20:05:46
+68,703 Calle José Velicia,2,7,15,2026-11-22 20:05:46
+69,704 Calle de la Alcaparra,2,7,15,2026-11-22 20:05:46
+70,705 Calle Ignacio Serrano,3,4,19,2026-11-22 20:05:46
+71,706 Calle Antonio Machado,11,2,19,2026-11-22 20:05:46
+72,707 Agencia de Innovación,1,2,19,2026-11-22 20:05:46
+73,708 Calle de Villafrades de Campos,10,1,19,2026-11-22 20:05:46
+74,709 Calle Ribera del Carrión,2,6,15,2026-11-22 20:05:46
+75,710 Calle Santiago Alba,1,2,15,2026-11-22 20:05:46
+76,801 Centro Cívico Casa Cuna,4,3,23,2026-11-22 20:05:46
+77,802 Plaza Marcos Fernandez,2,3,23,2026-11-22 20:05:46
+78,803 Calle Prof. Adolfo Miaja de la Muela,1,7,19,2026-11-22 20:05:46
+79,804 Calle José Garrote Tebar,2,4,19,2026-11-22 20:05:46
+80,805 Calle Federico Landrove Moiño,1,5,15,2026-11-22 20:05:46
+81,806 Calle Manuel Azaña ,2,7,19,2026-11-22 20:05:46
+82,807 Calle de Hernando de Acuña,1,0,19,2026-11-22 20:05:46
+83,808 Calle de Manuel Silvela,1,5,19,2026-11-22 20:05:46
+84,809 Calle de Mariano de los Cobos,5,4,19,2026-11-22 20:05:46
+85,810 Piscina Municipal Parquesol,1,4,19,2026-11-22 20:05:46
+86,901 Plaza del Milenio,8,5,19,2026-11-22 20:05:46
+87,902 Feria de Valladolid,9,0,19,2026-11-22 20:05:46
+88,903 Plaza Juan Pablo II,0,6,19,2026-11-22 20:05:46
+89,904 Complejo Deportivo Los Cerros,4,5,23,2026-11-22 20:05:46
+90,905 Centro Municipal José Luis Mosquera,9,3,19,2026-11-22 20:05:46
+91,906 Calle Arado,5,8,19,2026-11-22 20:05:46
+92,907 Calle de Rigoberto Cortejoso,4,1,19,2026-11-22 20:05:46
+93,"908 Calle Joaquín Velasco Martín, 17",10,1,19,2026-11-22 20:05:46
+94,909 Calle Monasterio de Sto Domingo de Silos,9,1,19,2026-11-22 20:05:46
+95,910 Calle de las Mieses,2,0,15,2026-11-22 20:05:46
+96,"911 Calle Joaquín Velasco Martín, 1",3,2,19,2026-11-22 20:05:46
+97,1001 La Overuela,2,2,11,2026-11-22 20:05:46
+98,1002 Puente Duero,2,0,11,2026-11-22 20:05:46
+105,104 Michelín,2,3,11,2026-11-22 20:05:46
+106,1005 Santovenia Centro Civico,3,3,11,2026-11-22 20:05:46
+107,1006 Santovenia Calle Fuentona,2,2,11,2026-11-22 20:05:46
+109,1004 La Cistérniga Cañada Real,3,3,11,2026-11-22 20:05:46
+110,1003 La Cistérniga San Cristóbal,1,6,11,2026-11-22 20:05:46
+111,510 Hospital Río Hortega,8,8,27,2026-11-22 20:05:46
+112,509 Barrio Arcas Reales,2,0,11,2026-11-22 20:05:46
+2,001 Fuente Dorada,3,5,27,2026-11-22 20:06:46
+3,002 Plaza Madrid,1,1,25,2026-11-22 20:06:46
+4,003 Estación de Tren,8,2,27,2026-11-22 20:06:46
+5,004 Plaza Circular,8,1,27,2026-11-22 20:06:46
+6,005 Plaza Trinidad,5,3,27,2026-11-22 20:06:46
+7,006 Plaza Santa Cruz,0,4,15,2026-11-22 20:06:46
+8,007 Plaza Poniente,7,10,47,2026-11-22 20:06:46
+9,008 Paseo Filipinos,5,2,27,2026-11-22 20:06:46
+10,009 Plaza Zorrilla,5,6,27,2026-11-22 20:06:46
+11,010 Cadenas de San Gregorio,6,1,15,2026-11-22 20:06:46
+12,011 Facultad Medicina,9,2,23,2026-11-22 20:06:46
+13,012 Teatro Cervantes,8,5,27,2026-11-22 20:06:46
+14,013 CASA DEL ESTUDIANTE- CLÍNICO,2,0,23,2026-11-22 20:06:46
+15,014 Plaza de San Miguel,4,5,19,2026-11-22 20:06:46
+16,015 Plaza de la Libertad,3,8,27,2026-11-22 20:06:46
+17,016 Plaza Caño Argales,14,2,27,2026-11-22 20:06:46
+18,017 PLAZA DE SAN JUAN,5,0,23,2026-11-22 20:06:46
+19,018 Duque de la Victoria,6,3,19,2026-11-22 20:06:46
+20,019 Angustias,2,1,15,2026-11-22 20:06:46
+21,020 MARÍA DE MOLINA,3,4,23,2026-11-22 20:06:46
+22,101 Fuente El Sol,7,1,15,2026-11-22 20:06:46
+23,102 Calle del Abedul,1,3,15,2026-11-22 20:06:46
+24,103 Calle Jupiter,2,2,15,2026-11-22 20:06:46
+25,201 CENTRO CÍVICO ESGUEVA,8,5,23,2026-11-22 20:06:46
+26,202 Campus Miguel Delibes,6,3,23,2026-11-22 20:06:46
+27,203 Plaza Ribera de Castilla,4,4,19,2026-11-22 20:06:46
+28,204 COLEGIO ENTRE RÍOS,4,1,23,2026-11-22 20:06:46
+29,205 HOSPITAL RONDILLA,5,1,19,2026-11-22 20:06:46
+30,206 Calle del Portillo de Balboa #1,5,3,19,2026-11-22 20:06:46
+31,207 Av. Santander 16,3,1,11,2026-11-22 20:06:46
+32,208 Facultad Ciencias Económicas,5,5,19,2026-11-22 20:06:46
+33,209 Paseo del Cauce,5,1,19,2026-11-22 20:06:46
+34,210 Plaza de los Vadillos,0,1,27,2026-11-22 20:06:46
+35,301 Centro Cívico Zona Este,4,0,15,2026-11-22 20:06:46
+36,302 Plaza Mayo,4,2,11,2026-11-22 20:06:46
+37,303 Calle de la Golondrina,3,4,19,2026-11-22 20:06:46
+38,304 Calle de la Cigüeña,1,0,11,2026-11-22 20:06:46
+39,305 Calle del Cometa,8,0,23,2026-11-22 20:06:46
+40,306 Centro Cívico Pilarica,5,0,11,2026-11-22 20:06:46
+41,401 Avenida Segovia,5,2,27,2026-11-22 20:06:46
+42,402 Calle Arca Real,2,5,19,2026-11-22 20:06:46
+43,403 Paseo Arco de Ladrillo,4,2,19,2026-11-22 20:06:46
+44,404 Calle de Andalucía,1,2,19,2026-11-22 20:06:46
+45,405 Plaza Gutiérrez Semprún,7,5,19,2026-11-22 20:06:46
+46,406 Paseo de Juan Carlos I,3,7,23,2026-11-22 20:06:46
+47,407 Calle General Shelly,7,6,23,2026-11-22 20:06:46
+48,408 Calle de Embajadores,2,4,19,2026-11-22 20:06:46
+49,501 Ctra. Segovia - UEMC,3,4,23,2026-11-22 20:06:46
+50,502 Calle de Peñalara,1,2,11,2026-11-22 20:06:46
+51,503 Calle de Daniel del Olmo González,2,2,11,2026-11-22 20:06:46
+52,504 Calle Bronce,7,0,11,2026-11-22 20:06:46
+53,505 Calle Plata,1,1,11,2026-11-22 20:06:46
+54,506 Calle del Aluminio,5,0,11,2026-11-22 20:06:46
+55,507 Calle Cromo,1,1,11,2026-11-22 20:06:46
+56,508 Calle Cobalto,3,3,10,2026-11-22 20:06:46
+57,"601 Paseo Zorrilla, 328",5,11,23,2026-11-22 20:06:46
+58,602 Casa de la India,1,0,23,2026-11-22 20:06:46
+59,"603 Paseo Zorrilla, 132",9,3,19,2026-11-22 20:06:46
+60,604 Espacio Joven Sur Valladolid,4,2,19,2026-11-22 20:06:46
+61,605 Polideportivo Ponce de León,6,0,23,2026-11-22 20:06:46
+62,606 Calle Vives,9,0,15,2026-11-22 20:06:46
+63,607 Calle Joaquín María Jalón,11,3,19,2026-11-22 20:06:46
+64,608 Calle Doctor Moreno,2,2,19,2026-11-22 20:06:46
+65,609 Plaza de Toros ,4,1,22,2026-11-22 20:06:46
+66,701 CDO Covaresa,5,9,21,2026-11-22 20:06:46
+67,702 Calle Atenas,2,5,15,2026-11-22 20:06:46
+68,703 Calle José Velicia,2,7,15,2026-11-22 20:06:46
+69,704 Calle de la Alcaparra,2,7,15,2026-11-22 20:06:46
+70,705 Calle Ignacio Serrano,3,4,19,2026-11-22 20:06:46
+71,706 Calle Antonio Machado,11,2,19,2026-11-22 20:06:46
+72,707 Agencia de Innovación,1,2,19,2026-11-22 20:06:46
+73,708 Calle de Villafrades de Campos,10,1,19,2026-11-22 20:06:46
+74,709 Calle Ribera del Carrión,2,6,15,2026-11-22 20:06:46
+75,710 Calle Santiago Alba,1,2,15,2026-11-22 20:06:46
+76,801 Centro Cívico Casa Cuna,4,3,23,2026-11-22 20:06:46
+77,802 Plaza Marcos Fernandez,2,4,23,2026-11-22 20:06:46
+78,803 Calle Prof. Adolfo Miaja de la Muela,1,7,19,2026-11-22 20:06:46
+79,804 Calle José Garrote Tebar,2,4,19,2026-11-22 20:06:46
+80,805 Calle Federico Landrove Moiño,1,5,15,2026-11-22 20:06:46
+81,806 Calle Manuel Azaña ,2,7,19,2026-11-22 20:06:46
+82,807 Calle de Hernando de Acuña,1,0,19,2026-11-22 20:06:46
+83,808 Calle de Manuel Silvela,1,5,19,2026-11-22 20:06:46
+84,809 Calle de Mariano de los Cobos,5,4,19,2026-11-22 20:06:46
+85,810 Piscina Municipal Parquesol,1,4,19,2026-11-22 20:06:46
+86,901 Plaza del Milenio,8,5,19,2026-11-22 20:06:46
+87,902 Feria de Valladolid,9,0,19,2026-11-22 20:06:46
+88,903 Plaza Juan Pablo II,0,6,19,2026-11-22 20:06:46
+89,904 Complejo Deportivo Los Cerros,4,5,23,2026-11-22 20:06:46
+90,905 Centro Municipal José Luis Mosquera,9,3,19,2026-11-22 20:06:46
+91,906 Calle Arado,5,8,19,2026-11-22 20:06:46
+92,907 Calle de Rigoberto Cortejoso,4,1,19,2026-11-22 20:06:46
+93,"908 Calle Joaquín Velasco Martín, 17",10,1,19,2026-11-22 20:06:46
+94,909 Calle Monasterio de Sto Domingo de Silos,9,1,19,2026-11-22 20:06:46
+95,910 Calle de las Mieses,2,0,15,2026-11-22 20:06:46
+96,"911 Calle Joaquín Velasco Martín, 1",3,2,19,2026-11-22 20:06:46
+97,1001 La Overuela,2,2,11,2026-11-22 20:06:46
+98,1002 Puente Duero,2,0,11,2026-11-22 20:06:46
+105,104 Michelín,2,3,11,2026-11-22 20:06:46
+106,1005 Santovenia Centro Civico,3,3,11,2026-11-22 20:06:46
+107,1006 Santovenia Calle Fuentona,2,2,11,2026-11-22 20:06:46
+109,1004 La Cistérniga Cañada Real,3,3,11,2026-11-22 20:06:46
+110,1003 La Cistérniga San Cristóbal,1,6,11,2026-11-22 20:06:46
+111,510 Hospital Río Hortega,8,8,27,2026-11-22 20:06:46
+112,509 Barrio Arcas Reales,2,0,11,2026-11-22 20:06:46
+2,001 Fuente Dorada,3,5,27,2026-11-22 20:07:46
+3,002 Plaza Madrid,1,1,25,2026-11-22 20:07:46
+4,003 Estación de Tren,8,2,27,2026-11-22 20:07:46
+5,004 Plaza Circular,8,1,27,2026-11-22 20:07:46
+6,005 Plaza Trinidad,5,3,27,2026-11-22 20:07:46
+7,006 Plaza Santa Cruz,0,4,15,2026-11-22 20:07:46
+8,007 Plaza Poniente,7,10,47,2026-11-22 20:07:46
+9,008 Paseo Filipinos,5,2,27,2026-11-22 20:07:46
+10,009 Plaza Zorrilla,5,6,27,2026-11-22 20:07:46
+11,010 Cadenas de San Gregorio,6,1,15,2026-11-22 20:07:46
+12,011 Facultad Medicina,9,2,23,2026-11-22 20:07:46
+13,012 Teatro Cervantes,8,5,27,2026-11-22 20:07:46
+14,013 CASA DEL ESTUDIANTE- CLÍNICO,2,0,23,2026-11-22 20:07:46
+15,014 Plaza de San Miguel,4,5,19,2026-11-22 20:07:46
+16,015 Plaza de la Libertad,3,8,27,2026-11-22 20:07:46
+17,016 Plaza Caño Argales,14,2,27,2026-11-22 20:07:46
+18,017 PLAZA DE SAN JUAN,5,0,23,2026-11-22 20:07:46
+19,018 Duque de la Victoria,6,3,19,2026-11-22 20:07:46
+20,019 Angustias,2,1,15,2026-11-22 20:07:46
+21,020 MARÍA DE MOLINA,3,4,23,2026-11-22 20:07:46
+22,101 Fuente El Sol,7,1,15,2026-11-22 20:07:46
+23,102 Calle del Abedul,1,3,15,2026-11-22 20:07:46
+24,103 Calle Jupiter,2,2,15,2026-11-22 20:07:46
+25,201 CENTRO CÍVICO ESGUEVA,8,5,23,2026-11-22 20:07:46
+26,202 Campus Miguel Delibes,6,3,23,2026-11-22 20:07:46
+27,203 Plaza Ribera de Castilla,4,4,19,2026-11-22 20:07:46
+28,204 COLEGIO ENTRE RÍOS,4,1,23,2026-11-22 20:07:46
+29,205 HOSPITAL RONDILLA,5,1,19,2026-11-22 20:07:46
+30,206 Calle del Portillo de Balboa #1,5,3,19,2026-11-22 20:07:46
+31,207 Av. Santander 16,3,1,11,2026-11-22 20:07:46
+32,208 Facultad Ciencias Económicas,5,5,19,2026-11-22 20:07:46
+33,209 Paseo del Cauce,5,1,19,2026-11-22 20:07:46
+34,210 Plaza de los Vadillos,0,1,27,2026-11-22 20:07:46
+35,301 Centro Cívico Zona Este,4,0,15,2026-11-22 20:07:46
+36,302 Plaza Mayo,4,2,11,2026-11-22 20:07:46
+37,303 Calle de la Golondrina,3,4,19,2026-11-22 20:07:46
+38,304 Calle de la Cigüeña,1,0,11,2026-11-22 20:07:46
+39,305 Calle del Cometa,8,0,23,2026-11-22 20:07:46
+40,306 Centro Cívico Pilarica,5,0,11,2026-11-22 20:07:46
+41,401 Avenida Segovia,5,2,27,2026-11-22 20:07:46
+42,402 Calle Arca Real,2,5,19,2026-11-22 20:07:46
+43,403 Paseo Arco de Ladrillo,4,2,19,2026-11-22 20:07:46
+44,404 Calle de Andalucía,1,2,19,2026-11-22 20:07:46
+45,405 Plaza Gutiérrez Semprún,8,5,19,2026-11-22 20:07:46
+46,406 Paseo de Juan Carlos I,3,7,23,2026-11-22 20:07:46
+47,407 Calle General Shelly,7,6,23,2026-11-22 20:07:46
+48,408 Calle de Embajadores,2,4,19,2026-11-22 20:07:46
+49,501 Ctra. Segovia - UEMC,3,4,23,2026-11-22 20:07:46
+50,502 Calle de Peñalara,1,2,11,2026-11-22 20:07:46
+51,503 Calle de Daniel del Olmo González,2,2,11,2026-11-22 20:07:46
+52,504 Calle Bronce,7,0,11,2026-11-22 20:07:46
+53,505 Calle Plata,1,1,11,2026-11-22 20:07:46
+54,506 Calle del Aluminio,5,0,11,2026-11-22 20:07:46
+55,507 Calle Cromo,1,1,11,2026-11-22 20:07:46
+56,508 Calle Cobalto,3,3,10,2026-11-22 20:07:46
+57,"601 Paseo Zorrilla, 328",5,11,23,2026-11-22 20:07:46
+58,602 Casa de la India,1,0,23,2026-11-22 20:07:46
+59,"603 Paseo Zorrilla, 132",9,3,19,2026-11-22 20:07:46
+60,604 Espacio Joven Sur Valladolid,4,2,19,2026-11-22 20:07:46
+61,605 Polideportivo Ponce de León,6,0,23,2026-11-22 20:07:46
+62,606 Calle Vives,9,0,15,2026-11-22 20:07:46
+63,607 Calle Joaquín María Jalón,11,3,19,2026-11-22 20:07:46
+64,608 Calle Doctor Moreno,2,2,19,2026-11-22 20:07:46
+65,609 Plaza de Toros ,4,1,22,2026-11-22 20:07:46
+66,701 CDO Covaresa,5,9,21,2026-11-22 20:07:46
+67,702 Calle Atenas,2,5,15,2026-11-22 20:07:46
+68,703 Calle José Velicia,2,7,15,2026-11-22 20:07:46
+69,704 Calle de la Alcaparra,2,7,15,2026-11-22 20:07:46
+70,705 Calle Ignacio Serrano,3,4,19,2026-11-22 20:07:46
+71,706 Calle Antonio Machado,11,2,19,2026-11-22 20:07:46
+72,707 Agencia de Innovación,1,2,19,2026-11-22 20:07:46
+73,708 Calle de Villafrades de Campos,10,1,19,2026-11-22 20:07:46
+74,709 Calle Ribera del Carrión,2,6,15,2026-11-22 20:07:46
+75,710 Calle Santiago Alba,1,2,15,2026-11-22 20:07:46
+76,801 Centro Cívico Casa Cuna,4,3,23,2026-11-22 20:07:46
+77,802 Plaza Marcos Fernandez,2,4,23,2026-11-22 20:07:46
+78,803 Calle Prof. Adolfo Miaja de la Muela,1,7,19,2026-11-22 20:07:46
+79,804 Calle José Garrote Tebar,2,4,19,2026-11-22 20:07:46
+80,805 Calle Federico Landrove Moiño,1,5,15,2026-11-22 20:07:46
+81,806 Calle Manuel Azaña ,2,7,19,2026-11-22 20:07:46
+82,807 Calle de Hernando de Acuña,1,0,19,2026-11-22 20:07:46
+83,808 Calle de Manuel Silvela,1,5,19,2026-11-22 20:07:46
+84,809 Calle de Mariano de los Cobos,5,4,19,2026-11-22 20:07:46
+85,810 Piscina Municipal Parquesol,1,4,19,2026-11-22 20:07:46
+86,901 Plaza del Milenio,8,5,19,2026-11-22 20:07:46
+87,902 Feria de Valladolid,9,0,19,2026-11-22 20:07:46
+88,903 Plaza Juan Pablo II,0,6,19,2026-11-22 20:07:46
+89,904 Complejo Deportivo Los Cerros,4,5,23,2026-11-22 20:07:46
+90,905 Centro Municipal José Luis Mosquera,9,3,19,2026-11-22 20:07:46
+91,906 Calle Arado,5,8,19,2026-11-22 20:07:46
+92,907 Calle de Rigoberto Cortejoso,4,3,19,2026-11-22 20:07:46
+93,"908 Calle Joaquín Velasco Martín, 17",10,1,19,2026-11-22 20:07:46
+94,909 Calle Monasterio de Sto Domingo de Silos,9,1,19,2026-11-22 20:07:46
+95,910 Calle de las Mieses,2,0,15,2026-11-22 20:07:46
+96,"911 Calle Joaquín Velasco Martín, 1",3,2,19,2026-11-22 20:07:46
+97,1001 La Overuela,2,2,11,2026-11-22 20:07:46
+98,1002 Puente Duero,2,0,11,2026-11-22 20:07:46
+105,104 Michelín,2,3,11,2026-11-22 20:07:46
+106,1005 Santovenia Centro Civico,3,3,11,2026-11-22 20:07:46
+107,1006 Santovenia Calle Fuentona,2,2,11,2026-11-22 20:07:46
+109,1004 La Cistérniga Cañada Real,3,3,11,2026-11-22 20:07:46
+110,1003 La Cistérniga San Cristóbal,1,6,11,2026-11-22 20:07:46
+111,510 Hospital Río Hortega,8,8,27,2026-11-22 20:07:46
+112,509 Barrio Arcas Reales,2,0,11,2026-11-22 20:07:46
+2,001 Fuente Dorada,3,5,27,2026-11-22 20:08:16
+3,002 Plaza Madrid,1,1,25,2026-11-22 20:08:16
+4,003 Estación de Tren,8,2,27,2026-11-22 20:08:16
+5,004 Plaza Circular,8,1,27,2026-11-22 20:08:16
+6,005 Plaza Trinidad,5,3,27,2026-11-22 20:08:16
+7,006 Plaza Santa Cruz,0,4,15,2026-11-22 20:08:16
+8,007 Plaza Poniente,7,10,47,2026-11-22 20:08:16
+9,008 Paseo Filipinos,5,2,27,2026-11-22 20:08:16
+10,009 Plaza Zorrilla,5,6,27,2026-11-22 20:08:16
+11,010 Cadenas de San Gregorio,6,1,15,2026-11-22 20:08:16
+12,011 Facultad Medicina,9,2,23,2026-11-22 20:08:16
+13,012 Teatro Cervantes,8,5,27,2026-11-22 20:08:16
+14,013 CASA DEL ESTUDIANTE- CLÍNICO,2,0,23,2026-11-22 20:08:16
+15,014 Plaza de San Miguel,4,5,19,2026-11-22 20:08:16
+16,015 Plaza de la Libertad,3,8,27,2026-11-22 20:08:16
+17,016 Plaza Caño Argales,14,2,27,2026-11-22 20:08:16
+18,017 PLAZA DE SAN JUAN,5,0,23,2026-11-22 20:08:16
+19,018 Duque de la Victoria,6,3,19,2026-11-22 20:08:16
+20,019 Angustias,2,1,15,2026-11-22 20:08:16
+21,020 MARÍA DE MOLINA,3,4,23,2026-11-22 20:08:16
+22,101 Fuente El Sol,7,1,15,2026-11-22 20:08:16
+23,102 Calle del Abedul,1,3,15,2026-11-22 20:08:16
+24,103 Calle Jupiter,2,2,15,2026-11-22 20:08:16
+25,201 CENTRO CÍVICO ESGUEVA,8,5,23,2026-11-22 20:08:16
+26,202 Campus Miguel Delibes,6,3,23,2026-11-22 20:08:16
+27,203 Plaza Ribera de Castilla,4,3,19,2026-11-22 20:08:16
+28,204 COLEGIO ENTRE RÍOS,4,1,23,2026-11-22 20:08:16
+29,205 HOSPITAL RONDILLA,5,1,19,2026-11-22 20:08:16
+30,206 Calle del Portillo de Balboa #1,5,3,19,2026-11-22 20:08:16
+31,207 Av. Santander 16,3,1,11,2026-11-22 20:08:16
+32,208 Facultad Ciencias Económicas,5,5,19,2026-11-22 20:08:16
+33,209 Paseo del Cauce,5,1,19,2026-11-22 20:08:16
+34,210 Plaza de los Vadillos,0,1,27,2026-11-22 20:08:16
+35,301 Centro Cívico Zona Este,4,0,15,2026-11-22 20:08:16
+36,302 Plaza Mayo,4,2,11,2026-11-22 20:08:16
+37,303 Calle de la Golondrina,3,4,19,2026-11-22 20:08:16
+38,304 Calle de la Cigüeña,1,0,11,2026-11-22 20:08:16
+39,305 Calle del Cometa,8,0,23,2026-11-22 20:08:16
+40,306 Centro Cívico Pilarica,5,0,11,2026-11-22 20:08:16
+41,401 Avenida Segovia,5,2,27,2026-11-22 20:08:16
+42,402 Calle Arca Real,2,5,19,2026-11-22 20:08:16
+43,403 Paseo Arco de Ladrillo,4,2,19,2026-11-22 20:08:16
+44,404 Calle de Andalucía,1,2,19,2026-11-22 20:08:16
+45,405 Plaza Gutiérrez Semprún,8,5,19,2026-11-22 20:08:16
+46,406 Paseo de Juan Carlos I,3,6,23,2026-11-22 20:08:16
+47,407 Calle General Shelly,7,6,23,2026-11-22 20:08:16
+48,408 Calle de Embajadores,2,4,19,2026-11-22 20:08:16
+49,501 Ctra. Segovia - UEMC,3,4,23,2026-11-22 20:08:16
+50,502 Calle de Peñalara,1,2,11,2026-11-22 20:08:16
+51,503 Calle de Daniel del Olmo González,2,2,11,2026-11-22 20:08:16
+52,504 Calle Bronce,7,0,11,2026-11-22 20:08:16
+53,505 Calle Plata,1,1,11,2026-11-22 20:08:16
+54,506 Calle del Aluminio,5,0,11,2026-11-22 20:08:16
+55,507 Calle Cromo,1,1,11,2026-11-22 20:08:16
+56,508 Calle Cobalto,3,3,10,2026-11-22 20:08:16
+57,"601 Paseo Zorrilla, 328",5,11,23,2026-11-22 20:08:16
+58,602 Casa de la India,1,0,23,2026-11-22 20:08:16
+59,"603 Paseo Zorrilla, 132",9,3,19,2026-11-22 20:08:16
+60,604 Espacio Joven Sur Valladolid,4,2,19,2026-11-22 20:08:16
+61,605 Polideportivo Ponce de León,6,0,23,2026-11-22 20:08:16
+62,606 Calle Vives,9,0,15,2026-11-22 20:08:16
+63,607 Calle Joaquín María Jalón,11,3,19,2026-11-22 20:08:16
+64,608 Calle Doctor Moreno,2,2,19,2026-11-22 20:08:16
+65,609 Plaza de Toros ,4,1,22,2026-11-22 20:08:16
+66,701 CDO Covaresa,5,9,21,2026-11-22 20:08:16
+67,702 Calle Atenas,2,5,15,2026-11-22 20:08:16
+68,703 Calle José Velicia,2,7,15,2026-11-22 20:08:16
+69,704 Calle de la Alcaparra,2,7,15,2026-11-22 20:08:16
+70,705 Calle Ignacio Serrano,3,4,19,2026-11-22 20:08:16
+71,706 Calle Antonio Machado,11,2,19,2026-11-22 20:08:16
+72,707 Agencia de Innovación,1,2,19,2026-11-22 20:08:16
+73,708 Calle de Villafrades de Campos,10,1,19,2026-11-22 20:08:16
+74,709 Calle Ribera del Carrión,2,6,15,2026-11-22 20:08:16
+75,710 Calle Santiago Alba,1,2,15,2026-11-22 20:08:16
+76,801 Centro Cívico Casa Cuna,4,3,23,2026-11-22 20:08:16
+77,802 Plaza Marcos Fernandez,2,4,23,2026-11-22 20:08:16
+78,803 Calle Prof. Adolfo Miaja de la Muela,1,7,19,2026-11-22 20:08:16
+79,804 Calle José Garrote Tebar,2,4,19,2026-11-22 20:08:16
+80,805 Calle Federico Landrove Moiño,1,5,15,2026-11-22 20:08:16
+81,806 Calle Manuel Azaña ,2,7,19,2026-11-22 20:08:16
+82,807 Calle de Hernando de Acuña,1,0,19,2026-11-22 20:08:16
+83,808 Calle de Manuel Silvela,1,5,19,2026-11-22 20:08:16
+84,809 Calle de Mariano de los Cobos,5,4,19,2026-11-22 20:08:16
+85,810 Piscina Municipal Parquesol,1,4,19,2026-11-22 20:08:16
+86,901 Plaza del Milenio,8,5,19,2026-11-22 20:08:16
+87,902 Feria de Valladolid,9,0,19,2026-11-22 20:08:16
+88,903 Plaza Juan Pablo II,0,6,19,2026-11-22 20:08:16
+89,904 Complejo Deportivo Los Cerros,4,5,23,2026-11-22 20:08:16
+90,905 Centro Municipal José Luis Mosquera,9,3,19,2026-11-22 20:08:16
+91,906 Calle Arado,5,8,19,2026-11-22 20:08:16
+92,907 Calle de Rigoberto Cortejoso,4,3,19,2026-11-22 20:08:16
+93,"908 Calle Joaquín Velasco Martín, 17",10,1,19,2026-11-22 20:08:16
+94,909 Calle Monasterio de Sto Domingo de Silos,9,1,19,2026-11-22 20:08:16
+95,910 Calle de las Mieses,2,0,15,2026-11-22 20:08:16
+96,"911 Calle Joaquín Velasco Martín, 1",3,2,19,2026-11-22 20:08:16
+97,1001 La Overuela,2,2,11,2026-11-22 20:08:16
+98,1002 Puente Duero,2,0,11,2026-11-22 20:08:16
+105,104 Michelín,2,3,11,2026-11-22 20:08:16
+106,1005 Santovenia Centro Civico,3,3,11,2026-11-22 20:08:16
+107,1006 Santovenia Calle Fuentona,2,2,11,2026-11-22 20:08:16
+109,1004 La Cistérniga Cañada Real,3,3,11,2026-11-22 20:08:16
+110,1003 La Cistérniga San Cristóbal,1,6,11,2026-11-22 20:08:16
+111,510 Hospital Río Hortega,8,8,27,2026-11-22 20:08:16
+112,509 Barrio Arcas Reales,2,0,11,2026-11-22 20:08:16
+2,001 Fuente Dorada,3,5,27,2026-11-22 20:08:46
+3,002 Plaza Madrid,1,1,25,2026-11-22 20:08:46
+4,003 Estación de Tren,8,2,27,2026-11-22 20:08:46
+5,004 Plaza Circular,8,1,27,2026-11-22 20:08:46
+6,005 Plaza Trinidad,5,3,27,2026-11-22 20:08:46
+7,006 Plaza Santa Cruz,0,4,15,2026-11-22 20:08:46
+8,007 Plaza Poniente,7,10,47,2026-11-22 20:08:46
+9,008 Paseo Filipinos,5,2,27,2026-11-22 20:08:46
+10,009 Plaza Zorrilla,5,6,27,2026-11-22 20:08:46
+11,010 Cadenas de San Gregorio,6,1,15,2026-11-22 20:08:46
+12,011 Facultad Medicina,9,2,23,2026-11-22 20:08:46
+13,012 Teatro Cervantes,8,5,27,2026-11-22 20:08:46
+14,013 CASA DEL ESTUDIANTE- CLÍNICO,2,0,23,2026-11-22 20:08:46
+15,014 Plaza de San Miguel,4,5,19,2026-11-22 20:08:46
+16,015 Plaza de la Libertad,3,8,27,2026-11-22 20:08:46
+17,016 Plaza Caño Argales,14,2,27,2026-11-22 20:08:46
+18,017 PLAZA DE SAN JUAN,5,0,23,2026-11-22 20:08:46
+19,018 Duque de la Victoria,6,3,19,2026-11-22 20:08:46
+20,019 Angustias,2,1,15,2026-11-22 20:08:46
+21,020 MARÍA DE MOLINA,3,4,23,2026-11-22 20:08:46
+22,101 Fuente El Sol,7,1,15,2026-11-22 20:08:46
+23,102 Calle del Abedul,1,3,15,2026-11-22 20:08:46
+24,103 Calle Jupiter,2,2,15,2026-11-22 20:08:46
+25,201 CENTRO CÍVICO ESGUEVA,8,5,23,2026-11-22 20:08:46
+26,202 Campus Miguel Delibes,6,3,23,2026-11-22 20:08:46
+27,203 Plaza Ribera de Castilla,4,3,19,2026-11-22 20:08:46
+28,204 COLEGIO ENTRE RÍOS,4,1,23,2026-11-22 20:08:46
+29,205 HOSPITAL RONDILLA,5,0,19,2026-11-22 20:08:46
+30,206 Calle del Portillo de Balboa #1,5,3,19,2026-11-22 20:08:46
+31,207 Av. Santander 16,3,1,11,2026-11-22 20:08:46
+32,208 Facultad Ciencias Económicas,5,5,19,2026-11-22 20:08:46
+33,209 Paseo del Cauce,5,1,19,2026-11-22 20:08:46
+34,210 Plaza de los Vadillos,0,1,27,2026-11-22 20:08:46
+35,301 Centro Cívico Zona Este,4,0,15,2026-11-22 20:08:46
+36,302 Plaza Mayo,4,2,11,2026-11-22 20:08:46
+37,303 Calle de la Golondrina,3,4,19,2026-11-22 20:08:46
+38,304 Calle de la Cigüeña,1,0,11,2026-11-22 20:08:46
+39,305 Calle del Cometa,8,0,23,2026-11-22 20:08:46
+40,306 Centro Cívico Pilarica,5,0,11,2026-11-22 20:08:46
+41,401 Avenida Segovia,5,2,27,2026-11-22 20:08:46
+42,402 Calle Arca Real,2,5,19,2026-11-22 20:08:46
+43,403 Paseo Arco de Ladrillo,4,2,19,2026-11-22 20:08:46
+44,404 Calle de Andalucía,1,2,19,2026-11-22 20:08:46
+45,405 Plaza Gutiérrez Semprún,8,5,19,2026-11-22 20:08:46
+46,406 Paseo de Juan Carlos I,3,6,23,2026-11-22 20:08:46
+47,407 Calle General Shelly,7,6,23,2026-11-22 20:08:46
+48,408 Calle de Embajadores,2,4,19,2026-11-22 20:08:46
+49,501 Ctra. Segovia - UEMC,3,4,23,2026-11-22 20:08:46
+50,502 Calle de Peñalara,1,2,11,2026-11-22 20:08:46
+51,503 Calle de Daniel del Olmo González,2,2,11,2026-11-22 20:08:46
+52,504 Calle Bronce,7,0,11,2026-11-22 20:08:46
+53,505 Calle Plata,1,1,11,2026-11-22 20:08:46
+54,506 Calle del Aluminio,5,0,11,2026-11-22 20:08:46
+55,507 Calle Cromo,1,1,11,2026-11-22 20:08:46
+56,508 Calle Cobalto,3,3,10,2026-11-22 20:08:46
+57,"601 Paseo Zorrilla, 328",5,11,23,2026-11-22 20:08:46
+58,602 Casa de la India,1,0,23,2026-11-22 20:08:46
+59,"603 Paseo Zorrilla, 132",9,3,19,2026-11-22 20:08:46
+60,604 Espacio Joven Sur Valladolid,4,2,19,2026-11-22 20:08:46
+61,605 Polideportivo Ponce de León,6,0,23,2026-11-22 20:08:46
+62,606 Calle Vives,9,0,15,2026-11-22 20:08:46
+63,607 Calle Joaquín María Jalón,11,3,19,2026-11-22 20:08:46
+64,608 Calle Doctor Moreno,2,2,19,2026-11-22 20:08:46
+65,609 Plaza de Toros ,4,1,22,2026-11-22 20:08:46
+66,701 CDO Covaresa,5,9,21,2026-11-22 20:08:46
+67,702 Calle Atenas,2,5,15,2026-11-22 20:08:46
+68,703 Calle José Velicia,2,7,15,2026-11-22 20:08:46
+69,704 Calle de la Alcaparra,2,7,15,2026-11-22 20:08:46
+70,705 Calle Ignacio Serrano,3,4,19,2026-11-22 20:08:46
+71,706 Calle Antonio Machado,11,2,19,2026-11-22 20:08:46
+72,707 Agencia de Innovación,1,2,19,2026-11-22 20:08:46
+73,708 Calle de Villafrades de Campos,10,1,19,2026-11-22 20:08:46
+74,709 Calle Ribera del Carrión,2,6,15,2026-11-22 20:08:46
+75,710 Calle Santiago Alba,1,2,15,2026-11-22 20:08:46
+76,801 Centro Cívico Casa Cuna,4,3,23,2026-11-22 20:08:46
+77,802 Plaza Marcos Fernandez,2,4,23,2026-11-22 20:08:46
+78,803 Calle Prof. Adolfo Miaja de la Muela,1,7,19,2026-11-22 20:08:46
+79,804 Calle José Garrote Tebar,2,4,19,2026-11-22 20:08:46
+80,805 Calle Federico Landrove Moiño,1,5,15,2026-11-22 20:08:46
+81,806 Calle Manuel Azaña ,2,7,19,2026-11-22 20:08:46
+82,807 Calle de Hernando de Acuña,1,0,19,2026-11-22 20:08:46
+83,808 Calle de Manuel Silvela,1,5,19,2026-11-22 20:08:46
+84,809 Calle de Mariano de los Cobos,5,4,19,2026-11-22 20:08:46
+85,810 Piscina Municipal Parquesol,1,4,19,2026-11-22 20:08:46
+86,901 Plaza del Milenio,8,5,19,2026-11-22 20:08:46
+87,902 Feria de Valladolid,9,0,19,2026-11-22 20:08:46
+88,903 Plaza Juan Pablo II,0,6,19,2026-11-22 20:08:46
+89,904 Complejo Deportivo Los Cerros,4,5,23,2026-11-22 20:08:46
+90,905 Centro Municipal José Luis Mosquera,9,3,19,2026-11-22 20:08:46
+91,906 Calle Arado,5,8,19,2026-11-22 20:08:46
+92,907 Calle de Rigoberto Cortejoso,4,3,19,2026-11-22 20:08:46
+93,"908 Calle Joaquín Velasco Martín, 17",10,1,19,2026-11-22 20:08:46
+94,909 Calle Monasterio de Sto Domingo de Silos,9,1,19,2026-11-22 20:08:46
+95,910 Calle de las Mieses,2,0,15,2026-11-22 20:08:46
+96,"911 Calle Joaquín Velasco Martín, 1",3,2,19,2026-11-22 20:08:46
+97,1001 La Overuela,2,2,11,2026-11-22 20:08:46
+98,1002 Puente Duero,2,0,11,2026-11-22 20:08:46
+105,104 Michelín,2,3,11,2026-11-22 20:08:46
+106,1005 Santovenia Centro Civico,3,3,11,2026-11-22 20:08:46
+107,1006 Santovenia Calle Fuentona,2,2,11,2026-11-22 20:08:46
+109,1004 La Cistérniga Cañada Real,3,3,11,2026-11-22 20:08:46
+110,1003 La Cistérniga San Cristóbal,1,6,11,2026-11-22 20:08:46
+111,510 Hospital Río Hortega,8,8,27,2026-11-22 20:08:46
+112,509 Barrio Arcas Reales,2,0,11,2026-11-22 20:08:46
+2,001 Fuente Dorada,3,5,27,2026-11-22 20:09:46
+3,002 Plaza Madrid,1,1,25,2026-11-22 20:09:46
+4,003 Estación de Tren,8,2,27,2026-11-22 20:09:46
+5,004 Plaza Circular,8,1,27,2026-11-22 20:09:46
+6,005 Plaza Trinidad,5,3,27,2026-11-22 20:09:46
+7,006 Plaza Santa Cruz,0,4,15,2026-11-22 20:09:46
+8,007 Plaza Poniente,7,10,47,2026-11-22 20:09:46
+9,008 Paseo Filipinos,5,2,27,2026-11-22 20:09:46
+10,009 Plaza Zorrilla,5,6,27,2026-11-22 20:09:46
+11,010 Cadenas de San Gregorio,6,1,15,2026-11-22 20:09:46
+12,011 Facultad Medicina,9,2,23,2026-11-22 20:09:46
+13,012 Teatro Cervantes,8,5,27,2026-11-22 20:09:46
+14,013 CASA DEL ESTUDIANTE- CLÍNICO,2,0,23,2026-11-22 20:09:46
+15,014 Plaza de San Miguel,4,5,19,2026-11-22 20:09:46
+16,015 Plaza de la Libertad,3,8,27,2026-11-22 20:09:46
+17,016 Plaza Caño Argales,14,2,27,2026-11-22 20:09:46
+18,017 PLAZA DE SAN JUAN,5,0,23,2026-11-22 20:09:46
+19,018 Duque de la Victoria,6,3,19,2026-11-22 20:09:46
+20,019 Angustias,2,1,15,2026-11-22 20:09:46
+21,020 MARÍA DE MOLINA,3,4,23,2026-11-22 20:09:46
+22,101 Fuente El Sol,7,1,15,2026-11-22 20:09:46
+23,102 Calle del Abedul,1,3,15,2026-11-22 20:09:46
+24,103 Calle Jupiter,2,2,15,2026-11-22 20:09:46
+25,201 CENTRO CÍVICO ESGUEVA,8,5,23,2026-11-22 20:09:46
+26,202 Campus Miguel Delibes,6,3,23,2026-11-22 20:09:46
+27,203 Plaza Ribera de Castilla,4,3,19,2026-11-22 20:09:46
+28,204 COLEGIO ENTRE RÍOS,4,1,23,2026-11-22 20:09:46
+29,205 HOSPITAL RONDILLA,5,0,19,2026-11-22 20:09:46
+30,206 Calle del Portillo de Balboa #1,5,3,19,2026-11-22 20:09:46
+31,207 Av. Santander 16,3,1,11,2026-11-22 20:09:46
+32,208 Facultad Ciencias Económicas,5,5,19,2026-11-22 20:09:46
+33,209 Paseo del Cauce,5,1,19,2026-11-22 20:09:46
+34,210 Plaza de los Vadillos,0,1,27,2026-11-22 20:09:46
+35,301 Centro Cívico Zona Este,4,0,15,2026-11-22 20:09:46
+36,302 Plaza Mayo,4,2,11,2026-11-22 20:09:46
+37,303 Calle de la Golondrina,3,4,19,2026-11-22 20:09:46
+38,304 Calle de la Cigüeña,1,0,11,2026-11-22 20:09:46
+39,305 Calle del Cometa,8,0,23,2026-11-22 20:09:46
+40,306 Centro Cívico Pilarica,5,0,11,2026-11-22 20:09:46
+41,401 Avenida Segovia,5,2,27,2026-11-22 20:09:46
+42,402 Calle Arca Real,2,5,19,2026-11-22 20:09:46
+43,403 Paseo Arco de Ladrillo,4,2,19,2026-11-22 20:09:46
+44,404 Calle de Andalucía,1,2,19,2026-11-22 20:09:46
+45,405 Plaza Gutiérrez Semprún,8,5,19,2026-11-22 20:09:46
+46,406 Paseo de Juan Carlos I,3,6,23,2026-11-22 20:09:46
+47,407 Calle General Shelly,7,6,23,2026-11-22 20:09:46
+48,408 Calle de Embajadores,2,4,19,2026-11-22 20:09:46
+49,501 Ctra. Segovia - UEMC,3,4,23,2026-11-22 20:09:46
+50,502 Calle de Peñalara,1,2,11,2026-11-22 20:09:46
+51,503 Calle de Daniel del Olmo González,2,2,11,2026-11-22 20:09:46
+52,504 Calle Bronce,7,0,11,2026-11-22 20:09:46
+53,505 Calle Plata,1,1,11,2026-11-22 20:09:46
+54,506 Calle del Aluminio,5,0,11,2026-11-22 20:09:46
+55,507 Calle Cromo,1,1,11,2026-11-22 20:09:46
+56,508 Calle Cobalto,3,3,10,2026-11-22 20:09:46
+57,"601 Paseo Zorrilla, 328",5,11,23,2026-11-22 20:09:46
+58,602 Casa de la India,1,0,23,2026-11-22 20:09:46
+59,"603 Paseo Zorrilla, 132",9,3,19,2026-11-22 20:09:46
+60,604 Espacio Joven Sur Valladolid,4,2,19,2026-11-22 20:09:46
+61,605 Polideportivo Ponce de León,6,0,23,2026-11-22 20:09:46
+62,606 Calle Vives,9,0,15,2026-11-22 20:09:46
+63,607 Calle Joaquín María Jalón,11,3,19,2026-11-22 20:09:46
+64,608 Calle Doctor Moreno,2,2,19,2026-11-22 20:09:46
+65,609 Plaza de Toros ,4,1,22,2026-11-22 20:09:46
+66,701 CDO Covaresa,5,9,21,2026-11-22 20:09:46
+67,702 Calle Atenas,2,5,15,2026-11-22 20:09:46
+68,703 Calle José Velicia,2,7,15,2026-11-22 20:09:46
+69,704 Calle de la Alcaparra,2,7,15,2026-11-22 20:09:46
+70,705 Calle Ignacio Serrano,3,4,19,2026-11-22 20:09:46
+71,706 Calle Antonio Machado,11,2,19,2026-11-22 20:09:46
+72,707 Agencia de Innovación,1,2,19,2026-11-22 20:09:46
+73,708 Calle de Villafrades de Campos,10,1,19,2026-11-22 20:09:46
+74,709 Calle Ribera del Carrión,2,6,15,2026-11-22 20:09:46
+75,710 Calle Santiago Alba,1,2,15,2026-11-22 20:09:46
+76,801 Centro Cívico Casa Cuna,4,3,23,2026-11-22 20:09:46
+77,802 Plaza Marcos Fernandez,2,4,23,2026-11-22 20:09:46
+78,803 Calle Prof. Adolfo Miaja de la Muela,1,7,19,2026-11-22 20:09:46
+79,804 Calle José Garrote Tebar,2,4,19,2026-11-22 20:09:46
+80,805 Calle Federico Landrove Moiño,1,5,15,2026-11-22 20:09:46
+81,806 Calle Manuel Azaña ,2,7,19,2026-11-22 20:09:46
+82,807 Calle de Hernando de Acuña,1,0,19,2026-11-22 20:09:46
+83,808 Calle de Manuel Silvela,1,5,19,2026-11-22 20:09:46
+84,809 Calle de Mariano de los Cobos,5,4,19,2026-11-22 20:09:46
+85,810 Piscina Municipal Parquesol,1,4,19,2026-11-22 20:09:46
+86,901 Plaza del Milenio,8,5,19,2026-11-22 20:09:46
+87,902 Feria de Valladolid,9,0,19,2026-11-22 20:09:46
+88,903 Plaza Juan Pablo II,0,6,19,2026-11-22 20:09:46
+89,904 Complejo Deportivo Los Cerros,4,5,23,2026-11-22 20:09:46
+90,905 Centro Municipal José Luis Mosquera,9,3,19,2026-11-22 20:09:46
+91,906 Calle Arado,5,8,19,2026-11-22 20:09:46
+92,907 Calle de Rigoberto Cortejoso,4,3,19,2026-11-22 20:09:46
+93,"908 Calle Joaquín Velasco Martín, 17",10,0,19,2026-11-22 20:09:46
+94,909 Calle Monasterio de Sto Domingo de Silos,9,1,19,2026-11-22 20:09:46
+95,910 Calle de las Mieses,2,0,15,2026-11-22 20:09:46
+96,"911 Calle Joaquín Velasco Martín, 1",3,2,19,2026-11-22 20:09:46
+97,1001 La Overuela,2,2,11,2026-11-22 20:09:46
+98,1002 Puente Duero,2,0,11,2026-11-22 20:09:46
+105,104 Michelín,2,3,11,2026-11-22 20:09:46
+106,1005 Santovenia Centro Civico,3,3,11,2026-11-22 20:09:46
+107,1006 Santovenia Calle Fuentona,2,2,11,2026-11-22 20:09:46
+109,1004 La Cistérniga Cañada Real,3,3,11,2026-11-22 20:09:46
+110,1003 La Cistérniga San Cristóbal,1,6,11,2026-11-22 20:09:46
+111,510 Hospital Río Hortega,8,8,27,2026-11-22 20:09:46
+112,509 Barrio Arcas Reales,2,0,11,2026-11-22 20:09:46
+2,001 Fuente Dorada,3,5,27,2026-11-22 20:10:46
+3,002 Plaza Madrid,1,1,25,2026-11-22 20:10:46
+4,003 Estación de Tren,8,2,27,2026-11-22 20:10:46
+5,004 Plaza Circular,8,1,27,2026-11-22 20:10:46
+6,005 Plaza Trinidad,5,3,27,2026-11-22 20:10:46
+7,006 Plaza Santa Cruz,0,4,15,2026-11-22 20:10:46
+8,007 Plaza Poniente,7,10,47,2026-11-22 20:10:46
+9,008 Paseo Filipinos,5,2,27,2026-11-22 20:10:46
+10,009 Plaza Zorrilla,5,6,27,2026-11-22 20:10:46
+11,010 Cadenas de San Gregorio,6,1,15,2026-11-22 20:10:46
+12,011 Facultad Medicina,9,2,23,2026-11-22 20:10:46
+13,012 Teatro Cervantes,8,5,27,2026-11-22 20:10:46
+14,013 CASA DEL ESTUDIANTE- CLÍNICO,2,0,23,2026-11-22 20:10:46
+15,014 Plaza de San Miguel,4,5,19,2026-11-22 20:10:46
+16,015 Plaza de la Libertad,3,8,27,2026-11-22 20:10:46
+17,016 Plaza Caño Argales,14,2,27,2026-11-22 20:10:46
+18,017 PLAZA DE SAN JUAN,5,0,23,2026-11-22 20:10:46
+19,018 Duque de la Victoria,6,3,19,2026-11-22 20:10:46
+20,019 Angustias,2,1,15,2026-11-22 20:10:46
+21,020 MARÍA DE MOLINA,2,4,23,2026-11-22 20:10:46
+22,101 Fuente El Sol,7,0,15,2026-11-22 20:10:46
+23,102 Calle del Abedul,1,3,15,2026-11-22 20:10:46
+24,103 Calle Jupiter,2,2,15,2026-11-22 20:10:46
+25,201 CENTRO CÍVICO ESGUEVA,8,5,23,2026-11-22 20:10:46
+26,202 Campus Miguel Delibes,6,3,23,2026-11-22 20:10:46
+27,203 Plaza Ribera de Castilla,4,3,19,2026-11-22 20:10:46
+28,204 COLEGIO ENTRE RÍOS,4,1,23,2026-11-22 20:10:46
+29,205 HOSPITAL RONDILLA,5,0,19,2026-11-22 20:10:46
+30,206 Calle del Portillo de Balboa #1,5,3,19,2026-11-22 20:10:46
+31,207 Av. Santander 16,3,1,11,2026-11-22 20:10:46
+32,208 Facultad Ciencias Económicas,5,5,19,2026-11-22 20:10:46
+33,209 Paseo del Cauce,5,1,19,2026-11-22 20:10:46
+34,210 Plaza de los Vadillos,0,1,27,2026-11-22 20:10:46
+35,301 Centro Cívico Zona Este,4,0,15,2026-11-22 20:10:46
+36,302 Plaza Mayo,4,2,11,2026-11-22 20:10:46
+37,303 Calle de la Golondrina,3,4,19,2026-11-22 20:10:46
+38,304 Calle de la Cigüeña,1,0,11,2026-11-22 20:10:46
+39,305 Calle del Cometa,8,0,23,2026-11-22 20:10:46
+40,306 Centro Cívico Pilarica,5,0,11,2026-11-22 20:10:46
+41,401 Avenida Segovia,5,2,27,2026-11-22 20:10:46
+42,402 Calle Arca Real,2,5,19,2026-11-22 20:10:46
+43,403 Paseo Arco de Ladrillo,4,2,19,2026-11-22 20:10:46
+44,404 Calle de Andalucía,1,2,19,2026-11-22 20:10:46
+45,405 Plaza Gutiérrez Semprún,8,5,19,2026-11-22 20:10:46
+46,406 Paseo de Juan Carlos I,3,6,23,2026-11-22 20:10:46
+47,407 Calle General Shelly,7,6,23,2026-11-22 20:10:46
+48,408 Calle de Embajadores,2,4,19,2026-11-22 20:10:46
+49,501 Ctra. Segovia - UEMC,3,4,23,2026-11-22 20:10:46
+50,502 Calle de Peñalara,1,2,11,2026-11-22 20:10:46
+51,503 Calle de Daniel del Olmo González,2,2,11,2026-11-22 20:10:46
+52,504 Calle Bronce,7,0,11,2026-11-22 20:10:46
+53,505 Calle Plata,1,1,11,2026-11-22 20:10:46
+54,506 Calle del Aluminio,5,0,11,2026-11-22 20:10:46
+55,507 Calle Cromo,1,1,11,2026-11-22 20:10:46
+56,508 Calle Cobalto,3,3,10,2026-11-22 20:10:46
+57,"601 Paseo Zorrilla, 328",5,11,23,2026-11-22 20:10:46
+58,602 Casa de la India,1,0,23,2026-11-22 20:10:46
+59,"603 Paseo Zorrilla, 132",9,3,19,2026-11-22 20:10:46
+60,604 Espacio Joven Sur Valladolid,4,2,19,2026-11-22 20:10:46
+61,605 Polideportivo Ponce de León,6,0,23,2026-11-22 20:10:46
+62,606 Calle Vives,9,0,15,2026-11-22 20:10:46
+63,607 Calle Joaquín María Jalón,11,3,19,2026-11-22 20:10:46
+64,608 Calle Doctor Moreno,2,2,19,2026-11-22 20:10:46
+65,609 Plaza de Toros ,4,1,22,2026-11-22 20:10:46
+66,701 CDO Covaresa,5,9,21,2026-11-22 20:10:46
+67,702 Calle Atenas,2,5,15,2026-11-22 20:10:46
+68,703 Calle José Velicia,2,7,15,2026-11-22 20:10:46
+69,704 Calle de la Alcaparra,2,7,15,2026-11-22 20:10:46
+70,705 Calle Ignacio Serrano,3,4,19,2026-11-22 20:10:46
+71,706 Calle Antonio Machado,11,2,19,2026-11-22 20:10:46
+72,707 Agencia de Innovación,1,2,19,2026-11-22 20:10:46
+73,708 Calle de Villafrades de Campos,10,1,19,2026-11-22 20:10:46
+74,709 Calle Ribera del Carrión,2,6,15,2026-11-22 20:10:46
+75,710 Calle Santiago Alba,1,2,15,2026-11-22 20:10:46
+76,801 Centro Cívico Casa Cuna,4,3,23,2026-11-22 20:10:46
+77,802 Plaza Marcos Fernandez,2,4,23,2026-11-22 20:10:46
+78,803 Calle Prof. Adolfo Miaja de la Muela,1,7,19,2026-11-22 20:10:46
+79,804 Calle José Garrote Tebar,2,4,19,2026-11-22 20:10:46
+80,805 Calle Federico Landrove Moiño,1,5,15,2026-11-22 20:10:46
+81,806 Calle Manuel Azaña ,2,7,19,2026-11-22 20:10:46
+82,807 Calle de Hernando de Acuña,1,0,19,2026-11-22 20:10:46
+83,808 Calle de Manuel Silvela,1,5,19,2026-11-22 20:10:46
+84,809 Calle de Mariano de los Cobos,5,4,19,2026-11-22 20:10:46
+85,810 Piscina Municipal Parquesol,1,4,19,2026-11-22 20:10:46
+86,901 Plaza del Milenio,8,5,19,2026-11-22 20:10:46
+87,902 Feria de Valladolid,9,0,19,2026-11-22 20:10:46
+88,903 Plaza Juan Pablo II,0,6,19,2026-11-22 20:10:46
+89,904 Complejo Deportivo Los Cerros,4,5,23,2026-11-22 20:10:46
+90,905 Centro Municipal José Luis Mosquera,9,3,19,2026-11-22 20:10:46
+91,906 Calle Arado,5,8,19,2026-11-22 20:10:46
+92,907 Calle de Rigoberto Cortejoso,4,3,19,2026-11-22 20:10:46
+93,"908 Calle Joaquín Velasco Martín, 17",10,0,19,2026-11-22 20:10:46
+94,909 Calle Monasterio de Sto Domingo de Silos,9,1,19,2026-11-22 20:10:46
+95,910 Calle de las Mieses,2,0,15,2026-11-22 20:10:46
+96,"911 Calle Joaquín Velasco Martín, 1",3,2,19,2026-11-22 20:10:46
+97,1001 La Overuela,2,2,11,2026-11-22 20:10:46
+98,1002 Puente Duero,2,0,11,2026-11-22 20:10:46
+105,104 Michelín,2,3,11,2026-11-22 20:10:46
+106,1005 Santovenia Centro Civico,3,3,11,2026-11-22 20:10:46
+107,1006 Santovenia Calle Fuentona,2,2,11,2026-11-22 20:10:46
+109,1004 La Cistérniga Cañada Real,3,3,11,2026-11-22 20:10:46
+110,1003 La Cistérniga San Cristóbal,1,6,11,2026-11-22 20:10:46
+111,510 Hospital Río Hortega,8,8,27,2026-11-22 20:10:46
+112,509 Barrio Arcas Reales,2,0,11,2026-11-22 20:10:46
